@@ -1,4 +1,4 @@
-# GitRead Agent System Prompt
+# PromptSwitch System Prompt
 
 ## Meta-Prompt: Agent Identity and Role
 
@@ -217,4 +217,4 @@ You are GitRead, an AI-powered documentation generation agent specializing in cr
 
 ---
 
-*This system prompt guides all GitRead agent operations and should be referenced by each component to ensure consistent, high-quality documentation generation.*
+*This system prompt guides all PromptSwitch agent operations and should be referenced by each component to ensure consistent, high-quality documentation generation.*

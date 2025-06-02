@@ -155,10 +155,20 @@ class DocumentFormatter:
         # Footer
         content.append("---")
         content.append("")
-        content.append("*This documentation was generated automatically by GitRead Agent.*")
+        content.append("## 📄 Documentation Info")
+        content.append("")
+        content.append("*This documentation was generated automatically by **PromptSwitch**.*")
+        content.append("")
+        content.append("**Created by:** [Avikalp Karrahe](https://github.com/Avikalp-Karrahe)")
+        content.append("")
+        content.append("**Connect with me:**")
+        content.append("- 🔗 [LinkedIn](https://www.linkedin.com/in/avikalp-karrahe/)")
+        content.append("- 💼 [GitHub](https://github.com/Avikalp-Karrahe)")
+        content.append("- 🚀 [PromptSwitch Repository](https://github.com/Avikalp-Karrahe/PromptSwitch)")
         
         if generation_info.get('timestamp'):
             timestamp = generation_info['timestamp']
+            content.append("")
             content.append(f"*Generated on: {timestamp}*")
         
         return "\n".join(content)

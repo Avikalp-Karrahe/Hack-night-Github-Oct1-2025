@@ -1,1 +1,1 @@
-"""GitRead Agent modules for modular repository processing."""
+"""PromptSwitch Agent modules for modular repository processing."""

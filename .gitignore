@@ -1,4 +1,4 @@
-# GitRead Agent - Git Ignore File
+# PromptSwitch - Git Ignore File
 
 # =============================================================================
 # ENVIRONMENT AND SECRETS
@@ -353,7 +353,7 @@ audit-logs/
 # NOTES
 # =============================================================================
 
-# This .gitignore file is designed for the GitRead Agent project
+# This .gitignore file is designed for the PromptSwitch project
 # It excludes:
 # - Sensitive configuration files and API keys
 # - Generated outputs and temporary files
