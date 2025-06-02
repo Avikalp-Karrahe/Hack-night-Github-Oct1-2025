@@ -118,6 +118,11 @@ class PromptSwitchAgent:
         # Extract repository name for output filename
         repo_name = self._extract_repo_name(github_url)
         
+        # Create repository-specific output directory
+        repo_output_dir = self.output_dir / repo_name
+        repo_output_dir.mkdir(exist_ok=True)
+        print(f"📁 Repository output directory: {repo_output_dir}")
+        
         # Create repository-specific output filename
         if output_filename == "project_doc.md":  # Default filename
             base_filename = f"{repo_name}_documentation.md"
@@ -190,18 +195,22 @@ class PromptSwitchAgent:
             print("📄 Formatting final document...")
             final_doc = self.formatter.format_document(filled_doc)
             
-            # Save primary documentation (Markdown)
-            output_path = self.output_dir / base_filename
+            # Save primary documentation (Markdown) in repository-specific folder
+            output_path = repo_output_dir / base_filename
             with open(output_path, 'w', encoding='utf-8') as f:
                 f.write(final_doc)
             
             pipeline_results['outputs']['documentation_path'] = str(output_path)
             print(f"✅ Documentation generated: {output_path}")
             
-            # Generate PDF version
+            # Generate PDF version in repository-specific folder
             print("📄 Generating PDF version...")
             try:
+                # Update formatter to use repo-specific output directory
+                original_output_dir = self.formatter.output_dir
+                self.formatter.output_dir = repo_output_dir
                 pdf_path = self.formatter.format_document(filled_doc, output_format='pdf', base_filename=base_filename)
+                self.formatter.output_dir = original_output_dir  # Restore original
                 pipeline_results['outputs']['pdf_path'] = pdf_path
                 print(f"✅ PDF generated: {pdf_path}")
             except Exception as e:
@@ -212,7 +221,10 @@ class PromptSwitchAgent:
                 # Fallback: Generate HTML and provide conversion instructions
                 try:
                     print("📄 Generating HTML fallback for PDF conversion...")
+                    original_output_dir = self.formatter.output_dir
+                    self.formatter.output_dir = repo_output_dir
                     html_path = self.formatter.format_document(filled_doc, output_format='html', base_filename=base_filename)
+                    self.formatter.output_dir = original_output_dir  # Restore original
                     pipeline_results['outputs']['html_path'] = html_path
                     print(f"✅ HTML generated: {html_path}")
                     print("💡 To convert to PDF: Open HTML in browser and use 'Print to PDF'")
@@ -221,12 +233,12 @@ class PromptSwitchAgent:
                     print(f"⚠️ {fallback_error}")
                     pipeline_results['errors'].append(fallback_error)
             
-            # Generate Claude Desktop Prompts
+            # Generate Claude Desktop Prompts in repository-specific folder
             print("🤖 Generating Claude Desktop prompts...")
             try:
                 claude_prompts = self._generate_claude_prompts(github_url, repo_data, final_doc, base_filename)
                 claude_prompts_filename = base_filename.replace('.md', '_claude_prompts.md')
-                claude_prompts_path = self.output_dir / claude_prompts_filename
+                claude_prompts_path = repo_output_dir / claude_prompts_filename
                 
                 with open(claude_prompts_path, 'w', encoding='utf-8') as f:
                     f.write(claude_prompts)
@@ -243,7 +255,11 @@ class PromptSwitchAgent:
             if enable_testing:
                 print("\n=== PHASE 3: Test Generation ===")
                 try:
+                    # Update test generator to use repo-specific output directory
+                    original_test_output_dir = self.test_generator.outputs_dir
+                    self.test_generator.outputs_dir = str(repo_output_dir)
                     test_results = self.test_generator.generate_tests(repo_data, filled_doc)
+                    self.test_generator.outputs_dir = original_test_output_dir  # Restore original
                     pipeline_results['outputs']['test_results'] = test_results
                     print(f"✅ Test generation complete: {len(test_results.get('test_files', []))} test files")
                 except Exception as e:
@@ -256,9 +272,13 @@ class PromptSwitchAgent:
             if enable_review:
                 print("\n=== PHASE 4: Quality Review ===")
                 try:
+                    # Update reviewer to use repo-specific output directory
+                    original_review_output_dir = self.reviewer.outputs_dir
+                    self.reviewer.outputs_dir = str(repo_output_dir)
                     review_results = self.reviewer.review_documentation(
                         filled_doc, repo_data, test_results
                     )
+                    self.reviewer.outputs_dir = original_review_output_dir  # Restore original
                     pipeline_results['outputs']['review_results'] = review_results
                     pipeline_results['quality_metrics'] = review_results['quality_scores']
                     print(f"✅ Quality review complete: {review_results['overall_score']:.1f}/100")
@@ -272,7 +292,16 @@ class PromptSwitchAgent:
             regeneration_block = self._generate_v2_regeneration_block(
                 pipeline_results, repo_data, review_results, test_results
             )
+            
+            # Save regeneration block in repository-specific folder
+            regen_filename = f"{repo_name}_regeneration_block.md"
+            regen_path = repo_output_dir / regen_filename
+            with open(regen_path, 'w', encoding='utf-8') as f:
+                f.write(regeneration_block)
+            
             pipeline_results['outputs']['regeneration_block'] = regeneration_block
+            pipeline_results['outputs']['regeneration_block_path'] = str(regen_path)
+            print(f"✅ Regeneration block saved: {regen_path}")
             
             # Final Summary
             pipeline_results['end_time'] = datetime.utcnow().isoformat()
@@ -445,12 +474,6 @@ class PromptSwitchAgent:
 *Generated by PromptSwitch v2 Agent - {timestamp}*
 """
         
-        # Save regeneration block
-        regen_path = self.output_dir / "regeneration_block.md"
-        with open(regen_path, 'w', encoding='utf-8') as f:
-            f.write(regen_content)
-        
-        print(f"📝 Regeneration block saved: {regen_path}")
         return regen_content
 
 

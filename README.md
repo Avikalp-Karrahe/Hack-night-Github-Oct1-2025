@@ -189,6 +189,104 @@ PromptSwitch generates comprehensive documentation including:
 - **Quality Review**: Comprehensive analysis report
 - **Regeneration Blocks**: Improvement suggestions
 
+## 🎬 Demo & Examples
+
+### 📁 Organized Output Structure
+
+PromptSwitch now organizes all outputs by repository name for better management:
+
+```
+outputs/
+├── facebook/                    # Facebook React repository
+│   ├── facebook_reac_documentation.md
+│   ├── facebook_reac_documentation.pdf
+│   └── facebook_reac_documentation_claude_prompts.md
+├── mui/                         # Material-UI repository
+│   ├── mui_material-u_documentation.md
+│   ├── mui_material-u_documentation.pdf
+│   └── mui_material-u_documentation_claude_prompts.md
+├── torvalds/                    # Linux kernel repository
+│   ├── torvalds_linux_documentation.md
+│   ├── torvalds_linux_documentation.pdf
+│   └── torvalds_linux_documentation_claude_prompts.md
+└── octocat/                     # GitHub Hello World example
+    ├── octocat_Hello-World_documentation.md
+    ├── octocat_Hello-World_documentation.pdf
+    └── octocat_Hello-World_documentation_claude_prompts.md
+```
+
+### 📋 Sample Documentation Output
+
+**Repository:** [Material-UI](https://github.com/mui/material-ui)  
+**Generated Files:** `outputs/mui/`
+
+- 📄 **Markdown Documentation**: `mui_material-u_documentation.md` (981 lines)
+- 📄 **PDF Version**: `mui_material-u_documentation.pdf` (Professional format)
+- 🤖 **Claude Prompts**: `mui_material-u_documentation_claude_prompts.md` (317 lines)
+
+### 🎯 PromptSwitch Footer
+
+All generated documentation includes our enhanced footer:
+
+```markdown
+---
+
+## Documentation Info
+
+*This documentation was generated automatically by **PromptSwitch**.*
+
+**Created by:** [Avikalp Karrahe](https://github.com/Avikalp-Karrahe)
+
+**Connect with me:**
+- 🔗 [LinkedIn](https://www.linkedin.com/in/avikalp-karrahe/)
+- 💼 [GitHub](https://github.com/Avikalp-Karrahe)
+- 🚀 [PromptSwitch Repository](https://github.com/Avikalp-Karrahe/PromptSwitch)
+
+*Generated on: 2025-06-02 at 02:37:38*
+```
+
+### 🤖 Claude Desktop Integration
+
+Each repository generates ready-to-use Claude Desktop prompts:
+
+**Example:** `mui_material-u_documentation_claude_prompts.md`
+
+```markdown
+# Claude Desktop Prompts for Building mui_material-u
+
+## Project Information
+- **GitHub URL:** https://github.com/mui/material-ui
+- **Primary Language:** JavaScript
+- **Project Type:** React Component Library
+- **Generated:** 2025-06-02T02:37:38
+
+## Prompt 1: Project Setup & Architecture
+[Detailed setup instructions and architecture planning]
+
+## Prompt 2: Core Implementation & Features
+[Implementation guidance and feature development]
+
+## Prompt 3: Testing, Deployment & Optimization
+[Testing strategies and deployment best practices]
+```
+
+### 📊 Quality Metrics
+
+**Sample Analysis Results:**
+- ✅ **Documentation Coverage**: 95%
+- ✅ **Code Quality Score**: 88/100
+- ✅ **Test Generation**: 12 test files
+- ✅ **Review Score**: 92/100
+
+### 🔄 Repository-Specific Folders
+
+Starting with v2, PromptSwitch automatically creates organized output folders:
+
+- **Automatic Detection**: Extracts repository name from GitHub URL
+- **Clean Organization**: All outputs grouped by repository
+- **Easy Navigation**: Find all related files in one place
+- **Scalable Structure**: Supports unlimited repositories
+
 ## 🧪 Testing
 
 ### Run Tests
