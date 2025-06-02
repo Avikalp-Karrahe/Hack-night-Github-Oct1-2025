@@ -328,8 +328,65 @@ Each repository generates ready-to-use Claude Desktop prompts:
 - **Project Type:** React Component Library
 - **Generated:** 2025-06-02T02:37:38
 
-## Prompt 1: Project Setup & Architecture
-[Detailed setup instructions and architecture planning]
+## Prompt 1: Project Setup & Architecture Planning
+
+You are a senior full-stack developer and software architect. I need you to help me build a REST API application using Unknown.
+
+**Project Context:**
+- Primary Language: Unknown
+- Project Type: Unknown
+- Reference Repository: https://github.com/mui/material-ui
+- Target Complexity: Based on 0 files
+- Key Features to Build: REST API, Database integration, Web interface, Command-line interface, Testing framework, User interface
+
+**Your Role:**
+- Expert Unknown developer with 10+ years experience
+- Software architecture specialist for Unknown applications
+- DevOps and deployment expert
+- Code quality advocate
+
+**Task:**
+Help me plan and set up the foundational architecture for a REST API application:
+
+1. **Project Initialization**
+   - Create proper directory structure
+   - Set up version control (git)
+   - Initialize package management (Unknown-specific)
+   - Configure development environment
+
+2. **Technology Stack Selection**
+   - Choose appropriate frameworks and libraries
+   - Select development tools and build systems
+   - Recommend testing frameworks
+   - Suggest deployment platforms
+
+3. **Architecture Design**
+   - Design overall system architecture
+   - Plan component structure and relationships
+   - Define data flow and API design
+   - Establish coding standards and conventions
+
+4. **Development Environment Setup**
+   - Create configuration files
+   - Set up development scripts
+   - Configure linting and formatting tools
+   - Establish CI/CD pipeline basics
+
+**Output Requirements:**
+- Step-by-step setup instructions
+- Complete file structure with explanations
+- Configuration files with proper settings
+- Development workflow recommendations
+- Best practices for the chosen technology stack
+
+**Quality Standards:**
+- Follow industry best practices
+- Ensure scalability and maintainability
+- Include security considerations
+- Provide clear, actionable instructions
+- Use modern development approaches
+
+Please provide a comprehensive project setup plan that I can follow to create a solid foundation for building this Unknown application.
 
 ## Prompt 2: Core Implementation & Features
 [Implementation guidance and feature development]
