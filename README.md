@@ -215,14 +215,36 @@ outputs/
     └── octocat_Hello-World_documentation_claude_prompts.md
 ```
 
-### 📋 Sample Documentation Output
+### 📋 Sample Documentation Outputs
 
-**Repository:** [Material-UI](https://github.com/mui/material-ui)  
-**Generated Files:** `outputs/mui/`
+PromptSwitch can handle repositories of all sizes and complexities. Here are some examples:
 
-- 📄 **Markdown Documentation**: `mui_material-u_documentation.md` (981 lines)
-- 📄 **PDF Version**: `mui_material-u_documentation.pdf` (Professional format)
-- 🤖 **Claude Prompts**: `mui_material-u_documentation_claude_prompts.md` (317 lines)
+#### 🔥 Major Open Source Projects
+
+**[Facebook React](https://github.com/facebook/react)** - JavaScript UI Library  
+**Generated Files:** [`outputs/facebook/`](./outputs/facebook/)
+- 📄 [Markdown Documentation](./outputs/facebook/facebook_reac_documentation.md) (1,131 lines)
+- 📄 [PDF Version](./outputs/facebook/facebook_reac_documentation.pdf) (Professional format)
+- 🤖 [Claude Prompts](./outputs/facebook/facebook_reac_documentation_claude_prompts.md) (317 lines)
+
+**[Microsoft VS Code](https://github.com/microsoft/vscode)** - TypeScript Code Editor  
+**Generated Files:** [`outputs/microsoft/`](./outputs/microsoft/)
+- 📄 [Markdown Documentation](./outputs/microsoft/microsoft_vscode_documentation.md) (1,723 lines)
+- 🤖 [Claude Prompts](./outputs/microsoft/microsoft_vscode_documentation_claude_prompts.md) (317 lines)
+
+**[Linux Kernel](https://github.com/torvalds/linux)** - C Operating System Kernel  
+**Generated Files:** [`outputs/torvalds/`](./outputs/torvalds/)
+- 📄 [Markdown Documentation](./outputs/torvalds/torvalds_linux_documentation.md) (18,705 lines)
+- 📄 [PDF Version](./outputs/torvalds/torvalds_linux_documentation.pdf) (Professional format)
+- 🤖 [Claude Prompts](./outputs/torvalds/torvalds_linux_documentation_claude_prompts.md) (317 lines)
+
+#### 💼 Portfolio Projects
+
+**[Minimal React Portfolio](https://github.com/Glacian22/Minimal-React-Portfolio)** - JavaScript Portfolio  
+**Generated Files:** [`outputs/Glacian22/`](./outputs/Glacian22/)
+- 📄 [Markdown Documentation](./outputs/Glacian22/Glacian22_Minimal-React-Portfolio_documentation.md) (383 lines)
+- 📄 [PDF Version](./outputs/Glacian22/Glacian22_Minimal-React-Portfolio_documentation.pdf) (Professional format)
+- 🤖 [Claude Prompts](./outputs/Glacian22/Glacian22_Minimal-React-Portfolio_documentation_claude_prompts.md) (317 lines)
 
 ### 🎯 PromptSwitch Footer
 
@@ -231,18 +253,11 @@ All generated documentation includes our enhanced footer:
 ```markdown
 ---
 
-## Documentation Info
+*This documentation was generated automatically by [PromptSwitch](https://github.com/Avikalp-Karrahe/PromptSwitch).*
 
-*This documentation was generated automatically by **PromptSwitch**.*
+*Created by [Avikalp Karrahe](https://github.com/Avikalp-Karrahe) | [LinkedIn](https://linkedin.com/in/avikalp-karrahe)*
 
-**Created by:** [Avikalp Karrahe](https://github.com/Avikalp-Karrahe)
-
-**Connect with me:**
-- 🔗 [LinkedIn](https://www.linkedin.com/in/avikalp-karrahe/)
-- 💼 [GitHub](https://github.com/Avikalp-Karrahe)
-- 🚀 [PromptSwitch Repository](https://github.com/Avikalp-Karrahe/PromptSwitch)
-
-*Generated on: 2025-06-02 at 02:37:38*
+*Generated on: 2025-06-02T09:20:29.221145*
 ```
 
 ### 🤖 Claude Desktop Integration
