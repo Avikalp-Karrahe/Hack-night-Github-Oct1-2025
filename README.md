@@ -311,19 +311,7 @@ scalable, and maintainable solution.
 
 **Full Documentation:** [📄 View Complete React Documentation](./outputs/facebook/facebook_reac_documentation.md) (1,131 lines)
 
-### 🎯 PromptSwitch Footer
 
-All generated documentation includes our enhanced footer:
-
-```markdown
----
-
-*This documentation was generated automatically by [PromptSwitch](https://github.com/Avikalp-Karrahe/PromptSwitch).*
-
-*Created by [Avikalp Karrahe](https://github.com/Avikalp-Karrahe) | [LinkedIn](https://linkedin.com/in/avikalp-karrahe)*
-
-*Generated on: 2025-06-02T09:20:29.221145*
-```
 
 ### 🤖 Claude Desktop Integration
 

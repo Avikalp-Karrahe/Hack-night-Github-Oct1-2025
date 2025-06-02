@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>MoncyDev_Portfolio-Website_documentation</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.min.css" />
+</head>
+<body>
+<h1 id="gitread_portfolio-website">gitread_Portfolio-Website</h1>
+<hr />
+<p><strong>Primary Language:</strong> typescript <strong>Project
+Type:</strong> Web Frontend <strong>Complexity:</strong> Complex
+<strong>Generated:</strong> 2025-06-02T04:13:45.467957</p>
+<hr />
+<h2 id="table-of-contents">Table of Contents</h2>
+<ul>
+<li><a href="#technology-stack">Technology Stack</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#project-structure">Project Structure</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#project-summary-&amp;-goals">Project Summary &amp;
+Goals</a></li>
+<li><a href="#key-features-&amp;-use-cases">Key Features &amp; Use
+Cases</a></li>
+<li><a href="#setup-instructions">Setup Instructions</a></li>
+<li><a href="#configuration-required">Configuration Required</a></li>
+<li><a href="#major-components-&amp;-modules">Major Components &amp;
+Modules</a></li>
+<li><a href="#execution-plan">Execution Plan</a></li>
+<li><a href="#development-workflow">Development Workflow</a></li>
+<li><a href="#testing-strategy">Testing Strategy</a></li>
+<li><a href="#deployment-checklist">Deployment Checklist</a></li>
+<li><a href="#troubleshooting-&amp;-tips">Troubleshooting &amp;
+Tips</a></li>
+<li><a href="#performance-optimization">Performance
+Optimization</a></li>
+<li><a href="#contributing-guidelines">Contributing Guidelines</a></li>
+</ul>
+<hr />
+<h2 id="technology-stack">Technology Stack</h2>
+<p>This project leverages modern technologies and frameworks to deliver
+a robust, scalable, and maintainable solution. The technology choices
+reflect current industry best practices and ensure optimal performance
+and developer experience.</p>
+<h3 id="programming-languages">Programming Languages</h3>
+<ul>
+<li><strong>typescript</strong> (Primary): 58.2% - 32 files</li>
+<li><strong>css</strong>: 23.6% - 13 files</li>
+<li><strong>json</strong>: 9.1% - 5 files</li>
+<li><strong>javascript</strong>: 5.5% - 3 files</li>
+<li><strong>html</strong>: 1.8% - 1 files</li>
+<li><strong>markdown</strong>: 1.8% - 1 files</li>
+</ul>
+<h3 id="development-tools">Development Tools</h3>
+<ul>
+<li><strong>Modern Development Stack</strong>: Industry-standard tools
+and practices</li>
+<li><strong>Code Quality Tools</strong>: Linting, formatting, and
+testing utilities</li>
+<li><strong>Build Optimization</strong>: Automated bundling and
+optimization processes</li>
+</ul>
+<h3 id="file-breakdown">File Breakdown</h3>
+<table>
+<thead>
+<tr>
+<th>Language</th>
+<th>Files</th>
+<th>Percentage</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>typescript</td>
+<td>32</td>
+<td>58.2%</td>
+<td>Application development and functionality</td>
+</tr>
+<tr>
+<td>css</td>
+<td>13</td>
+<td>23.6%</td>
+<td>Application development and functionality</td>
+</tr>
+<tr>
+<td>json</td>
+<td>5</td>
+<td>9.1%</td>
+<td>Application development and functionality</td>
+</tr>
+<tr>
+<td>javascript</td>
+<td>3</td>
+<td>5.5%</td>
+<td>Application development and functionality</td>
+</tr>
+<tr>
+<td>html</td>
+<td>1</td>
+<td>1.8%</td>
+<td>Application development and functionality</td>
+</tr>
+<tr>
+<td>markdown</td>
+<td>1</td>
+<td>1.8%</td>
+<td>Application development and functionality</td>
+</tr>
+</tbody>
+</table>
+<h3 id="architecture-overview">Architecture Overview</h3>
+<ul>
+<li><strong>Modular Design</strong>: Clean separation of functionality
+and concerns</li>
+<li><strong>Scalable Structure</strong>: Organized codebase for easy
+maintenance</li>
+<li><strong>Best Practices</strong>: Following industry standards and
+conventions</li>
+<li><strong>Documentation</strong>: Comprehensive code documentation and
+comments</li>
+</ul>
+<h2 id="usage">Usage</h2>
+<p>[Usage examples to be documented]</p>
+<h2 id="project-structure">Project Structure</h2>
+<pre><code>└── gitread_Portfolio-Website/
+    ├── public/
+    │   ├── draco/
+    │   │   ├── ...
+    │   │   └── ...
+    │   ├── images/
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   └── ...
+    │   └── models/
+    │       ├── ...
+    │       ├── ...
+    │       ├── ...
+    │       └── ...
+    ├── src/
+    │   ├── assets/
+    │   │   └── ...
+    │   ├── components/
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   ├── ...
+    │   │   └── ...
+    │   ├── context/
+    │   │   └── ...
+    │   ├── data/
+    │   │   └── ...
+    │   ├── App.css
+    │   ├── App.tsx
+    │   ├── index.css
+    │   ├── main.tsx
+    │   └── vite-env.d.ts
+    ├── eslint.config.js
+    ├── index.html
+    ├── LICENSE
+    ├── package-lock.json
+    ├── package.json
+    ├── README.md
+    ├── test.js
+    ├── tsconfig.app.json
+    ├── tsconfig.app.tsbuildinfo
+    ├── tsconfig.json
+    ├── tsconfig.node.json
+    ├── tsconfig.node.tsbuildinfo
+    └── vite.config.ts</code></pre>
+<h3 id="directory-description">Directory Description</h3>
+<ul>
+<li><code>public/</code>: [Description needed]</li>
+<li><code>src/</code>: [Description needed]</li>
+</ul>
+<h2 id="license">License</h2>
+<p>This project is licensed under the terms specified in the
+<code>LICENSE</code> file.</p>
+<h2 id="project-summary-goals">Project Summary &amp; Goals</h2>
+<h1
+id="gitread_portfolio-website---comprehensive-project-plan">gitread_Portfolio-Website
+- Comprehensive Project Plan</h1>
+<p><strong>Repository:</strong> [GitHub Repository URL] <strong>Primary
+Language:</strong> typescript <strong>Project Type:</strong> Application
+<strong>Complexity:</strong> Low <strong>Last Updated:</strong> June 01,
+2025</p>
+<hr />
+<h2 id="table-of-contents-1">Table of Contents</h2>
+<ol type="1">
+<li><a href="#project-summary-goals">Project Summary &amp;
+Goals</a></li>
+<li><a href="#key-features-use-cases">Key Features &amp; Use
+Cases</a></li>
+<li><a href="#technology-stack">Technology Stack</a></li>
+<li><a href="#project-structure">Project Structure</a></li>
+<li><a href="#major-components-modules">Major Components &amp;
+Modules</a></li>
+<li><a href="#setup-instructions">Setup Instructions</a></li>
+<li><a href="#configuration-required">Configuration Required</a></li>
+<li><a href="#execution-plan">Execution Plan</a></li>
+<li><a href="#development-workflow">Development Workflow</a></li>
+<li><a href="#deployment-checklist">Deployment Checklist</a></li>
+<li><a href="#troubleshooting-tips">Troubleshooting &amp; Tips</a></li>
+<li><a href="#performance-optimization">Performance
+Optimization</a></li>
+<li><a href="#contributing-guidelines">Contributing Guidelines</a></li>
+</ol>
+<hr />
+<h3 id="overview">Overview</h3>
+<p>This repository contains the open source version of my porfolio
+website. Do check it out!</p>
+<h3 id="primary-goals">Primary Goals</h3>
+<p>• <strong>Functionality:</strong> Deliver core features with high
+reliability and performance • <strong>Maintainability:</strong> Ensure
+clean, well-documented, and extensible codebase • <strong>User
+Experience:</strong> Provide intuitive and efficient user interactions •
+<strong>Quality:</strong> Maintain high code quality with comprehensive
+testing</p>
+<h3 id="target-audience">Target Audience</h3>
+<p>• Developers and software engineers • Technical teams and project
+stakeholders • Students and learners in software development • Anyone
+interested in modern software architecture</p>
+<h2 id="key-features-use-cases">Key Features &amp; Use Cases</h2>
+<h3 id="core-features">Core Features</h3>
+<h4 id="core-functionality">Core Functionality</h4>
+<p>• <strong>typescript Implementation:</strong> Professional-grade code
+with modern practices • <strong>Modular Design:</strong> Clean
+architecture with separation of concerns • <strong>Extensible
+Framework:</strong> Easy to customize and extend functionality •
+<strong>Comprehensive Documentation:</strong> Well-documented codebase
+and APIs</p>
+<h4 id="quality-maintenance">Quality &amp; Maintenance</h4>
+<p>• <strong>Code Quality:</strong> Following industry best practices
+and standards • <strong>Testing Coverage:</strong> Comprehensive test
+suite for reliability • <strong>Version Control:</strong> Proper Git
+workflow and branching strategy • <strong>Continuous
+Integration:</strong> Automated testing and deployment pipeline</p>
+<h3 id="use-cases">Use Cases</h3>
+<p>• <strong>Development Learning:</strong> Educational resource for
+software development • <strong>Production Deployment:</strong>
+Ready-to-use solution for real-world applications • <strong>Code
+Reference:</strong> Example implementation for similar projects •
+<strong>Foundation Framework:</strong> Starting point for custom
+development</p>
+<h3 id="feature-highlights">Feature Highlights</h3>
+<p>• <strong>Professional Architecture:</strong> Well-structured and
+maintainable codebase • <strong>Modern Technologies:</strong> Built with
+current industry standards • <strong>Scalable Design:</strong> Prepared
+for future growth and enhancements</p>
+<h2 id="setup-instructions">Setup Instructions</h2>
+<p>This section provides comprehensive instructions for setting up the
+development environment and running the project locally. Follow these
+steps carefully to ensure a smooth setup process.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Before you begin, ensure you have the following software installed on
+your system:</p>
+<ul>
+<li><strong>Git</strong> for version control</li>
+<li><strong>Code Editor</strong> (VS Code, Sublime Text, etc.)</li>
+<li><strong>Terminal/Command Line</strong> access</li>
+</ul>
+<h3 id="system-requirements">System Requirements</h3>
+<h4 id="minimum-requirements">Minimum Requirements</h4>
+<ul>
+<li><strong>Operating System</strong>: Windows 10, macOS 10.15, or Linux
+(Ubuntu 18.04+)</li>
+<li><strong>RAM</strong>: 4GB minimum, 8GB recommended</li>
+<li><strong>Storage</strong>: 2GB free space</li>
+<li><strong>Internet Connection</strong>: Required for initial setup and
+dependencies</li>
+</ul>
+<h4 id="recommended-specifications">Recommended Specifications</h4>
+<ul>
+<li><strong>RAM</strong>: 16GB for optimal performance</li>
+<li><strong>CPU</strong>: Multi-core processor (Intel i5/AMD Ryzen 5 or
+better)</li>
+<li><strong>Storage</strong>: SSD for faster build times</li>
+</ul>
+<h3 id="step-by-step-installation">Step-by-Step Installation</h3>
+<h4 id="step-1-clone-the-repository">Step 1: Clone the Repository</h4>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Clone the repository</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://github.com/username/gitread_Portfolio-Website.git</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Navigate to project directory</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> gitread_Portfolio-Website</span></code></pre></div>
+<h4 id="step-2-install-dependencies">Step 2: Install Dependencies</h4>
+<h4 id="step-3-verify-installation">Step 3: Verify Installation</h4>
+<h4 id="step-4-environment-setup">Step 4: Environment Setup</h4>
+<ol type="1">
+<li><p><strong>Copy environment template:</strong></p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cp</span> .env.example .env</span></code></pre></div></li>
+<li><p><strong>Configure environment variables</strong> (see
+Configuration section)</p></li>
+<li><p><strong>Initialize database</strong> (if applicable):</p>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run database migrations</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run migrate</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># or for Python projects</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span> manage.py migrate</span></code></pre></div></li>
+</ol>
+<h2 id="configuration-required">Configuration Required</h2>
+<p>This section outlines all necessary configuration steps to ensure the
+application runs correctly in your environment. Proper configuration is
+essential for security, performance, and functionality.</p>
+<h3 id="environment-variables">Environment Variables</h3>
+<p>Environment variables are used to configure the application for
+different environments (development, staging, production) and to store
+sensitive information securely.</p>
+<h4 id="required-variables">Required Variables</h4>
+<p>Create a <code>.env</code> file in the project root directory and
+configure the following variables:</p>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Application Settings</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="va">APP_ENV</span><span class="op">=</span>development</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="va">APP_DEBUG</span><span class="op">=</span>true</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="va">APP_PORT</span><span class="op">=</span>3000</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Database Configuration</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="va">DATABASE_URL</span><span class="op">=</span>your_database_connection_string</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># API Keys and Secrets</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="va">API_SECRET_KEY</span><span class="op">=</span>your_secret_key</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="va">ENCRYPTION_KEY</span><span class="op">=</span>your_encryption_key</span></code></pre></div>
+<h3 id="build-configuration">Build Configuration</h3>
+<h3 id="security-configuration">Security Configuration</h3>
+<h4 id="important-security-notes">Important Security Notes</h4>
+<ul>
+<li><strong>Never commit</strong> <code>.env</code> files to version
+control</li>
+<li><strong>Use strong passwords</strong> and secure API keys</li>
+<li><strong>Enable HTTPS</strong> in production environments</li>
+<li><strong>Regularly update</strong> dependencies for security
+patches</li>
+<li><strong>Implement rate limiting</strong> for API endpoints</li>
+</ul>
+<h4 id="environment-specific-settings">Environment-Specific
+Settings</h4>
+<table>
+<thead>
+<tr>
+<th>Environment</th>
+<th>Debug Mode</th>
+<th>HTTPS</th>
+<th>Database</th>
+<th>Caching</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Development</td>
+<td>Enabled</td>
+<td>Optional</td>
+<td>Local</td>
+<td>Disabled</td>
+</tr>
+<tr>
+<td>Staging</td>
+<td>Limited</td>
+<td>Required</td>
+<td>Remote</td>
+<td>Enabled</td>
+</tr>
+<tr>
+<td>Production</td>
+<td>Disabled</td>
+<td>Required</td>
+<td>Remote</td>
+<td>Enabled</td>
+</tr>
+</tbody>
+</table>
+<h2 id="major-components-modules">Major Components &amp; Modules</h2>
+<h2 id="development">Development</h2>
+<h3 id="development-setup">Development Setup</h3>
+<ol type="1">
+<li>Follow the installation instructions</li>
+<li>Install development dependencies</li>
+<li>Set up your development environment</li>
+</ol>
+<h2 id="execution-plan">Execution Plan</h2>
+<h2 id="development-1">Development</h2>
+<h3 id="development-setup-1">Development Setup</h3>
+<ol type="1">
+<li>Follow the installation instructions</li>
+<li>Install development dependencies</li>
+<li>Set up your development environment</li>
+</ol>
+<h2 id="development-workflow">Development Workflow</h2>
+<h2 id="development-2">Development</h2>
+<h3 id="development-setup-2">Development Setup</h3>
+<ol type="1">
+<li>Follow the installation instructions</li>
+<li>Install development dependencies</li>
+<li>Set up your development environment</li>
+</ol>
+<h2 id="testing-strategy">Testing Strategy</h2>
+<h2 id="testing">Testing</h2>
+<p>No tests found in the repository. Consider adding tests to improve
+code quality.</p>
+<h2 id="deployment-checklist">Deployment Checklist</h2>
+<h2 id="deployment">Deployment</h2>
+<h3 id="production-considerations">Production Considerations</h3>
+<ul>
+<li>Environment variables configuration</li>
+<li>Database setup and migrations</li>
+<li>Security considerations</li>
+<li>Monitoring and logging</li>
+</ul>
+<h2 id="troubleshooting-tips">Troubleshooting &amp; Tips</h2>
+<h2 id="development-3">Development</h2>
+<h3 id="development-setup-3">Development Setup</h3>
+<ol type="1">
+<li>Follow the installation instructions</li>
+<li>Install development dependencies</li>
+<li>Set up your development environment</li>
+</ol>
+<h2 id="performance-optimization">Performance Optimization</h2>
+<h2 id="development-4">Development</h2>
+<h3 id="development-setup-4">Development Setup</h3>
+<ol type="1">
+<li>Follow the installation instructions</li>
+<li>Install development dependencies</li>
+<li>Set up your development environment</li>
+</ol>
+<h2 id="contributing-guidelines">Contributing Guidelines</h2>
+<h2 id="development-5">Development</h2>
+<h3 id="development-setup-5">Development Setup</h3>
+<ol type="1">
+<li>Follow the installation instructions</li>
+<li>Install development dependencies</li>
+<li>Set up your development environment</li>
+</ol>
+<hr />
+<p><em>This documentation was generated automatically by GitRead
+Agent.</em> <em>Generated on: 2025-06-02T04:13:45.467957</em></p>
+</body>
+</html>

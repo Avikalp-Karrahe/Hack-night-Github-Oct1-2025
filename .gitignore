@@ -158,7 +158,7 @@ cython_debug/
 # =============================================================================
 
 # Output directories
-outputs/
+
 temp/
 cloned_repos/
 cache/
@@ -363,6 +363,6 @@ audit-logs/
 #
 # Remember to:
 # 1. Never commit .env files or API keys
-# 2. Keep generated outputs in outputs/ directory
+# 2. Keep generated outputs in  directory
 # 3. Use .env.example for configuration templates
 # 4. Add project-specific patterns as needed

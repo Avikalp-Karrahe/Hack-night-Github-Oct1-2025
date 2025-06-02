@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website - Project Plan</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #2c3e50;
+            margin-top: 2em;
+            margin-bottom: 0.5em;
+        }
+        h1 {
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 5px;
+        }
+        code {
+            background-color: #f8f9fa;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            color: #e74c3c;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            border-left: 4px solid #3498db;
+        }
+        pre code {
+            color: #333;
+            background: none;
+            padding: 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        ul, ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 0.5em;
+        }
+        blockquote {
+            border-left: 4px solid #3498db;
+            margin: 0;
+            padding-left: 20px;
+            color: #666;
+        }
+        p {
+            margin-bottom: 1em;
+        }
+        @media print {
+            body {
+                max-width: none;
+                margin: 0;
+                padding: 15px;
+            }
+            h1, h2, h3, h4, h5, h6 {
+                page-break-after: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+<h1>Portfolio Website - Comprehensive Project Plan</h1>
+<strong>Repository:</strong> https://github.com/MoncyDev/Portfolio-Website  
+<strong>Primary Language:</strong> TypeScript  
+<strong>Project Type:</strong> Web Frontend (React + Three.js)  
+<strong>Complexity:</strong> Complex  
+<strong>Last Updated:</strong> June 2, 2025
+<p>---</p>
+<h2>Table of Contents</h2>
+<ol>
+<li>[Project Summary & Goals](#project-summary--goals)</li>
+<li>[Key Features & Use Cases](#key-features--use-cases)</li>
+<li>[Technology Stack](#technology-stack)</li>
+<li>[Project Structure](#project-structure)</li>
+<li>[Major Components & Modules](#major-components--modules)</li>
+<li>[Setup Instructions](#setup-instructions)</li>
+<li>[Configuration Required](#configuration-required)</li>
+<li>[Execution Plan](#execution-plan)</li>
+<li>[Development Workflow](#development-workflow)</li>
+<li>[Deployment Checklist](#deployment-checklist)</li>
+<li>[Troubleshooting & Tips](#troubleshooting--tips)</li>
+<li>[Performance Optimization](#performance-optimization)</li>
+<li>[Contributing Guidelines](#contributing-guidelines)</li>
+</ol>
+<p>---</p>
+<h2>Project Summary & Goals</h2>
+<h3>Overview</h3>
+This is an open-source portfolio website built with modern web technologies, featuring interactive 3D elements, smooth animations, and responsive design. The project showcases advanced frontend development skills using React, Three.js, and GSAP.
+<h3>Primary Goals</h3>
+<ul>
+<li><strong>Showcase Portfolio:</strong> Display projects, skills, and professional experience</li>
+<li><strong>Interactive Experience:</strong> Provide engaging 3D visuals and animations</li>
+<li><strong>Performance:</strong> Maintain fast loading times despite complex graphics</li>
+<li><strong>Accessibility:</strong> Ensure usability across devices and accessibility standards</li>
+<li><strong>Modern Stack:</strong> Demonstrate proficiency with cutting-edge web technologies</li>
+</ul>
+<h3>Target Audience</h3>
+<ul>
+<li>Potential employers and clients</li>
+<li>Fellow developers seeking inspiration</li>
+<li>Students learning modern web development</li>
+<li>Anyone interested in interactive web experiences</li>
+</ul>
+<p>---</p>
+<h2>Key Features & Use Cases</h2>
+<h3>Core Features</h3>
+<h4>🎨 Interactive 3D Graphics</h4>
+<ul>
+<li><strong>Three.js Integration:</strong> Complex 3D scenes and models</li>
+<li><strong>React Three Fiber:</strong> Declarative 3D rendering in React</li>
+<li><strong>Post-processing Effects:</strong> Advanced visual effects and shaders</li>
+<li><strong>Physics Simulation:</strong> Realistic object interactions with Cannon.js</li>
+</ul>
+<h4>⚡ Advanced Animations</h4>
+<ul>
+<li><strong>GSAP Integration:</strong> Professional-grade animations</li>
+<li><strong>Smooth Transitions:</strong> Seamless page and component transitions</li>
+<li><strong>Scroll-triggered Animations:</strong> Interactive storytelling</li>
+<li><strong>Performance Optimized:</strong> Hardware-accelerated animations</li>
+</ul>
+<h4>📱 Responsive Design</h4>
+<ul>
+<li><strong>Mobile-first Approach:</strong> Optimized for all screen sizes</li>
+<li><strong>Touch Interactions:</strong> Mobile-friendly 3D controls</li>
+<li><strong>Progressive Enhancement:</strong> Graceful degradation for older devices</li>
+</ul>
+<h4>🚀 Modern Development Stack</h4>
+<ul>
+<li><strong>TypeScript:</strong> Type-safe development</li>
+<li><strong>Vite:</strong> Fast build tool and development server</li>
+<li><strong>ESLint:</strong> Code quality and consistency</li>
+<li><strong>Modern CSS:</strong> Advanced styling techniques</li>
+</ul>
+<h3>Use Cases</h3>
+<ol>
+<li><strong>Portfolio Showcase</strong></li>
+<ul>
+</ol>
+<li>Display projects with interactive previews</li>
+<li>Highlight technical skills and achievements</li>
+<li>Provide contact information and social links</li>
+</ul>
+<ol>
+<li><strong>Educational Resource</strong></li>
+<ul>
+</ol>
+<li>Demonstrate modern web development techniques</li>
+<li>Show integration of multiple complex libraries</li>
+<li>Provide code examples for learning</li>
+</ul>
+<ol>
+<li><strong>Client Presentations</strong></li>
+<ul>
+</ol>
+<li>Impress potential clients with interactive demos</li>
+<li>Showcase technical capabilities</li>
+<li>Provide professional online presence</li>
+</ul>
+<p>---</p>
+<h2>Technology Stack</h2>
+<h3>Frontend Framework</h3>
+<ul>
+<li><strong>React 18+</strong> - Component-based UI library</li>
+<li><strong>TypeScript</strong> - Type-safe JavaScript development</li>
+<li><strong>Vite</strong> - Next-generation frontend build tool</li>
+</ul>
+<h3>3D Graphics & Animation</h3>
+<ul>
+<li><strong>Three.js</strong> - 3D graphics library</li>
+<li><strong>@react-three/fiber</strong> - React renderer for Three.js</li>
+<li><strong>@react-three/drei</strong> - Useful helpers for React Three Fiber</li>
+<li><strong>@react-three/cannon</strong> - Physics engine integration</li>
+<li><strong>@react-three/postprocessing</strong> - Post-processing effects</li>
+<li><strong>@gsap/react</strong> - Professional animation library</li>
+</ul>
+<h3>Development Tools</h3>
+<ul>
+<li><strong>ESLint</strong> - Code linting and quality</li>
+<li><strong>TypeScript Compiler</strong> - Type checking and compilation</li>
+<li><strong>Vite Dev Server</strong> - Fast development experience</li>
+</ul>
+<h3>File Breakdown</h3>
+<ul>
+<li><strong>TypeScript:</strong> 32 files (Primary development language)</li>
+<li><strong>CSS:</strong> 13 files (Styling and animations)</li>
+<li><strong>JSON:</strong> 5 files (Configuration and data)</li>
+<li><strong>JavaScript:</strong> 3 files (Legacy or build scripts)</li>
+<li><strong>HTML:</strong> 1 file (Entry point)</li>
+<li><strong>Markdown:</strong> 1 file (Documentation)</li>
+</ul>
+<p>---</p>
+<h2>Project Structure</h2>
+<code></code>`
+portfolio-website/
+├── public/                     # Static assets
+│   ├── draco/                 # Draco compression files for 3D models
+│   ├── images/                # Image assets (14+ files)
+│   └── models/                # 3D model files (4+ files)
+├── src/                       # Source code
+│   ├── assets/                # Project assets
+│   ├── components/            # React components (17+ files)
+│   ├── context/               # React context providers
+│   ├── data/                  # Static data and configurations
+│   ├── App.css               # Main application styles
+│   ├── App.tsx               # Root React component
+│   ├── index.css             # Global styles
+│   ├── main.tsx              # Application entry point
+│   └── vite-env.d.ts         # Vite type definitions
+├── eslint.config.js           # ESLint configuration
+├── index.html                 # HTML entry point
+├── package.json               # Dependencies and scripts
+├── package-lock.json          # Dependency lock file
+├── tsconfig.*.json           # TypeScript configurations
+├── vite.config.ts            # Vite build configuration
+└── README.md                 # Project documentation
+<code></code>`
+<h3>Directory Descriptions</h3>
+<h4><code>/public/</code></h4>
+<ul>
+<li><strong>Static Assets:</strong> Files served directly by the web server</li>
+<li><strong>draco/:</strong> Compression library for optimizing 3D models</li>
+<li><strong>images/:</strong> Portfolio images, backgrounds, and visual assets</li>
+<li><strong>models/:</strong> 3D model files (likely .glb, .gltf formats)</li>
+</ul>
+<h4><code>/src/</code></h4>
+<ul>
+<li><strong>Main Source Code:</strong> All TypeScript/React development files</li>
+<li><strong>components/:</strong> Reusable React components and UI elements</li>
+<li><strong>context/:</strong> State management and data providers</li>
+<li><strong>data/:</strong> Configuration files and static data</li>
+</ul>
+<p>---</p>
+<h2>Major Components & Modules</h2>
+<h3>Core Application Components</h3>
+<h4>1. <strong>App.tsx</strong> - Root Component</h4>
+<ul>
+<li><strong>Purpose:</strong> Main application wrapper and routing</li>
+<li><strong>Responsibilities:</strong></li>
+<li>Initialize global state and context</li>
+<li>Set up routing and navigation</li>
+<li>Load global styles and configurations</li>
+<li>Handle error boundaries</li>
+</ul>
+<h4>2. <strong>Components Directory</strong> (17+ files)</h4>
+Based on typical portfolio structure, likely includes:
+<ul>
+<li><strong>Header/Navigation</strong></li>
+<li>Responsive navigation menu</li>
+<li>Logo and branding</li>
+<li>Mobile hamburger menu</li>
+</ul>
+<ul>
+<li><strong>Hero Section</strong></li>
+<li>3D animated introduction</li>
+<li>Interactive background elements</li>
+<li>Call-to-action buttons</li>
+</ul>
+<ul>
+<li><strong>Portfolio Gallery</strong></li>
+<li>Project showcase with 3D previews</li>
+<li>Filtering and categorization</li>
+<li>Modal overlays for detailed views</li>
+</ul>
+<ul>
+<li><strong>About Section</strong></li>
+<li>Personal information and bio</li>
+<li>Skills visualization</li>
+<li>Interactive elements</li>
+</ul>
+<ul>
+<li><strong>Contact Form</strong></li>
+<li>Form validation and submission</li>
+<li>Social media links</li>
+<li>Contact information</li>
+</ul>
+<ul>
+<li><strong>3D Scene Components</strong></li>
+<li>Three.js canvas setup</li>
+<li>3D model loaders</li>
+<li>Animation controllers</li>
+<li>Physics interactions</li>
+</ul>
+<h4>3. <strong>Context Providers</strong></h4>
+<ul>
+<li><strong>Theme Context:</strong> Dark/light mode switching</li>
+<li><strong>Animation Context:</strong> Global animation state</li>
+<li><strong>Portfolio Context:</strong> Project data management</li>
+<li><strong>User Interaction Context:</strong> Mouse/touch tracking</li>
+</ul>
+<h4>4. <strong>Data Management</strong></h4>
+<ul>
+<li><strong>Project Data:</strong> Portfolio project information</li>
+<li><strong>Skills Data:</strong> Technical skills and proficiencies</li>
+<li><strong>Configuration:</strong> Site settings and constants</li>
+</ul>
+<h3>3D Graphics Architecture</h3>
+<h4>Three.js Integration</h4>
+<ul>
+<li><strong>Scene Setup:</strong> Camera, lighting, and renderer configuration</li>
+<li><strong>Model Loading:</strong> Efficient 3D asset loading with Draco compression</li>
+<li><strong>Animation System:</strong> GSAP-powered smooth animations</li>
+<li><strong>Physics Engine:</strong> Realistic object interactions</li>
+<li><strong>Post-processing:</strong> Visual effects and shaders</li>
+</ul>
+<h4>Performance Optimizations</h4>
+<ul>
+<li><strong>Level of Detail (LOD):</strong> Adaptive model complexity</li>
+<li><strong>Frustum Culling:</strong> Render only visible objects</li>
+<li><strong>Texture Optimization:</strong> Compressed and optimized images</li>
+<li><strong>Lazy Loading:</strong> Load assets on demand</li>
+</ul>
+<p>---</p>
+<h2>Setup Instructions</h2>
+<h3>Prerequisites</h3>
+<h4>Required Software</h4>
+<code></code>`bash
+<h1>Node.js (version 16 or higher)</h1>
+node --version  # Should be 16.0.0 or higher
+npm --version   # Should be 8.0.0 or higher
+<h1>Git for version control</h1>
+git --version
+<code></code>`
+<h4>System Requirements</h4>
+<ul>
+<li><strong>Operating System:</strong> Windows 10+, macOS 10.15+, or Linux</li>
+<li><strong>RAM:</strong> Minimum 8GB (16GB recommended for development)</li>
+<li><strong>Graphics:</strong> WebGL-compatible graphics card</li>
+<li><strong>Browser:</strong> Chrome 90+, Firefox 88+, Safari 14+, or Edge 90+</li>
+</ul>
+<h3>Step-by-Step Installation</h3>
+<h4>1. Clone the Repository</h4>
+<code></code>`bash
+<h1>Clone the repository</h1>
+git clone https://github.com/MoncyDev/Portfolio-Website.git
+<h1>Navigate to project directory</h1>
+cd Portfolio-Website
+<h1>Verify project structure</h1>
+ls -la
+<code></code>`
+<h4>2. Install Dependencies</h4>
+<code></code>`bash
+<h1>Install all npm dependencies</h1>
+npm install
+<h1>Verify installation</h1>
+npm list --depth=0
+<code></code>`
+<h4>3. Verify Installation</h4>
+<code></code>`bash
+<h1>Check if all dependencies are installed correctly</h1>
+npm audit
+<h1>Fix any vulnerabilities (if needed)</h1>
+npm audit fix
+<code></code>`
+<h4>4. Environment Setup</h4>
+<code></code>`bash
+<h1>Create environment file (if needed)</h1>
+cp .env.example .env
+<h1>Edit environment variables</h1>
+nano .env  # or use your preferred editor
+<code></code>`
+<h3>Troubleshooting Installation</h3>
+<h4>Common Issues</h4>
+<strong>Node Version Conflicts:</strong>
+<code></code>`bash
+<h1>Use Node Version Manager (nvm)</h1>
+nvm install 18
+nvm use 18
+<code></code>`
+<strong>Permission Errors:</strong>
+<code></code>`bash
+<h1>Fix npm permissions (macOS/Linux)</h1>
+sudo chown -R $(whoami) ~/.npm
+<h1>Or use npx instead of global installs</h1>
+npx create-react-app --version
+<code></code>`
+<strong>Dependency Conflicts:</strong>
+<code></code>`bash
+<h1>Clear npm cache</h1>
+npm cache clean --force
+<h1>Delete node_modules and reinstall</h1>
+rm -rf node_modules package-lock.json
+npm install
+<code></code>`
+<p>---</p>
+<h2>Configuration Required</h2>
+<h3>Environment Variables</h3>
+<p>Create a <code>.env</code> file in the root directory:</p>
+<code></code>`bash
+<h1>.env file</h1>
+<h1>Development configuration</h1>
+VITE_APP_TITLE="Portfolio Website"
+VITE_APP_DESCRIPTION="Interactive portfolio showcasing modern web development"
+<h1>API endpoints (if applicable)</h1>
+VITE_API_BASE_URL="https://api.example.com"
+<h1>Analytics (optional)</h1>
+VITE_GOOGLE_ANALYTICS_ID="GA_MEASUREMENT_ID"
+<h1>Contact form (if using external service)</h1>
+VITE_CONTACT_FORM_ENDPOINT="https://formspree.io/f/your-form-id"
+VITE_EMAILJS_SERVICE_ID="your_service_id"
+VITE_EMAILJS_TEMPLATE_ID="your_template_id"
+VITE_EMAILJS_PUBLIC_KEY="your_public_key"
+<h1>Social media links</h1>
+VITE_GITHUB_URL="https://github.com/MoncyDev"
+VITE_LINKEDIN_URL="https://linkedin.com/in/yourprofile"
+VITE_TWITTER_URL="https://twitter.com/yourhandle"
+<code></code>`
+<h3>TypeScript Configuration</h3>
+<p>The project includes multiple TypeScript configurations:</p>
+<h4><code>tsconfig.json</code> - Base Configuration</h4>
+<code></code>`json
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  }
+}
+<code></code>`
+<h3>Vite Configuration</h3>
+<h4><code>vite.config.ts</code></h4>
+<code></code>`typescript
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+<p>export default defineConfig({
+  plugins: [react()],
+  server: {
+    port: 3000,
+    open: true
+  },
+  build: {
+    outDir: 'dist',
+    sourcemap: true
+  },
+  optimizeDeps: {
+    include: ['three', '@react-three/fiber', '@react-three/drei']
+  }
+})
+<code></code>`</p>
+<h3>ESLint Configuration</h3>
+<h4><code>eslint.config.js</code></h4>
+Ensures code quality and consistency:
+<code></code>`javascript
+export default {
+  extends: [
+    'eslint:recommended',
+    '@typescript-eslint/recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended'
+  ],
+  rules: {
+    // Custom rules for the project
+  }
+}
+<code></code>`
+<p>---</p>
+<h2>Execution Plan</h2>
+<h3>Development Mode</h3>
+<h4>1. Start Development Server</h4>
+<code></code>`bash
+<h1>Start the development server</h1>
+npm run dev
+<h1>Alternative: Start with specific port</h1>
+npm run dev -- --port 3000
+<h1>Start with host binding (for network access)</h1>
+npm run dev -- --host
+<code></code>`
+<h4>2. Verify Development Environment</h4>
+<code></code>`bash
+<h1>Open browser to development URL</h1>
+open http://localhost:3000
+<h1>Check console for any errors</h1>
+<h1>Verify 3D elements are loading correctly</h1>
+<h1>Test responsive design on different screen sizes</h1>
+<code></code>`
+<h4>3. Development Workflow</h4>
+<code></code>`bash
+<h1>Run linting</h1>
+npm run lint
+<h1>Fix linting issues automatically</h1>
+npm run lint:fix
+<h1>Type checking</h1>
+npm run type-check
+<h1>Run tests (if available)</h1>
+npm test
+<code></code>`
+<h3>Production Build</h3>
+<h4>1. Build for Production</h4>
+<code></code>`bash
+<h1>Create production build</h1>
+npm run build
+<h1>Verify build output</h1>
+ls -la dist/
+<h1>Check build size</h1>
+du -sh dist/
+<code></code>`
+<h4>2. Preview Production Build</h4>
+<code></code>`bash
+<h1>Preview production build locally</h1>
+npm run preview
+<h1>Test production build</h1>
+open http://localhost:4173
+<code></code>`
+<h4>3. Build Optimization</h4>
+<code></code>`bash
+<h1>Analyze bundle size</h1>
+npm run build -- --analyze
+<h1>Check for unused dependencies</h1>
+npx depcheck
+<h1>Optimize images (if needed)</h1>
+npx imagemin-cli public/images/* --out-dir=public/images/optimized
+<code></code>`
+<h3>Testing Strategy</h3>
+<h4>Manual Testing Checklist</h4>
+<ul>
+<li>[ ] <strong>Page Load:</strong> All pages load without errors</li>
+<li>[ ] <strong>3D Graphics:</strong> Three.js scenes render correctly</li>
+<li>[ ] <strong>Animations:</strong> GSAP animations play smoothly</li>
+<li>[ ] <strong>Responsive:</strong> Works on mobile, tablet, and desktop</li>
+<li>[ ] <strong>Performance:</strong> Page loads in under 3 seconds</li>
+<li>[ ] <strong>Accessibility:</strong> Keyboard navigation works</li>
+<li>[ ] <strong>Cross-browser:</strong> Works in Chrome, Firefox, Safari, Edge</li>
+</ul>
+<h4>Performance Testing</h4>
+<code></code>`bash
+<h1>Lighthouse audit</h1>
+npx lighthouse http://localhost:3000 --output html --output-path ./lighthouse-report.html
+<h1>Bundle analyzer</h1>
+npm install --save-dev webpack-bundle-analyzer
+npm run build && npx webpack-bundle-analyzer dist/static/js/*.js
+<code></code>`
+<p>---</p>
+<h2>Development Workflow</h2>
+<h3>Daily Development Process</h3>
+<h4>1. Start Development Session</h4>
+<code></code>`bash
+<h1>Pull latest changes</h1>
+git pull origin main
+<h1>Install any new dependencies</h1>
+npm install
+<h1>Start development server</h1>
+npm run dev
+<code></code>`
+<h4>2. Code Quality Checks</h4>
+<code></code>`bash
+<h1>Before committing changes</h1>
+npm run lint
+npm run type-check
+npm test  # if tests exist
+<code></code>`
+<h4>3. Git Workflow</h4>
+<code></code>`bash
+<h1>Create feature branch</h1>
+git checkout -b feature/new-component
+<h1>Make changes and commit</h1>
+git add .
+git commit -m "feat: add new portfolio component"
+<h1>Push changes</h1>
+git push origin feature/new-component
+<code></code>`
+<h3>Code Organization Best Practices</h3>
+<h4>Component Structure</h4>
+<code></code>`typescript
+// components/PortfolioItem/index.tsx
+import React from 'react'
+import { Canvas } from '@react-three/fiber'
+import './PortfolioItem.css'
+<p>interface PortfolioItemProps {
+  title: string
+  description: string
+  modelPath: string
+}</p>
+<p>export const PortfolioItem: React.FC<PortfolioItemProps> = ({
+  title,
+  description,
+  modelPath
+}) => {
+  return (
+    <div className="portfolio-item">
+      <Canvas>
+        {/<em> 3D content </em>/}
+      </Canvas>
+      <div className="portfolio-info">
+        <h3>{title}</h3>
+        <p>{description}</p>
+      </div>
+    </div>
+  )
+}
+<code></code>`</p>
+<h4>File Naming Conventions</h4>
+<ul>
+<li><strong>Components:</strong> PascalCase (e.g., <code>PortfolioItem.tsx</code>)</li>
+<li><strong>Hooks:</strong> camelCase with 'use' prefix (e.g., <code>useAnimation.ts</code>)</li>
+<li><strong>Utilities:</strong> camelCase (e.g., <code>mathUtils.ts</code>)</li>
+<li><strong>Constants:</strong> UPPER_SNAKE_CASE (e.g., <code>API_ENDPOINTS.ts</code>)</li>
+</ul>
+<p>---</p>
+<h2>Deployment Checklist</h2>
+<h3>Pre-deployment Preparation</h3>
+<h4>1. Code Quality Verification</h4>
+<ul>
+<li>[ ] All TypeScript errors resolved</li>
+<li>[ ] ESLint warnings addressed</li>
+<li>[ ] Code formatted consistently</li>
+<li>[ ] No console.log statements in production code</li>
+<li>[ ] All TODO comments resolved or documented</li>
+</ul>
+<h4>2. Performance Optimization</h4>
+<ul>
+<li>[ ] Images optimized and compressed</li>
+<li>[ ] 3D models optimized with Draco compression</li>
+<li>[ ] Bundle size analyzed and optimized</li>
+<li>[ ] Lazy loading implemented for heavy components</li>
+<li>[ ] Service worker configured (if applicable)</li>
+</ul>
+<h4>3. Security Checklist</h4>
+<ul>
+<li>[ ] No sensitive data in environment variables</li>
+<li>[ ] API keys properly secured</li>
+<li>[ ] HTTPS configured</li>
+<li>[ ] Content Security Policy (CSP) headers set</li>
+<li>[ ] Dependencies audited for vulnerabilities</li>
+</ul>
+<h3>Deployment Platforms</h3>
+<h4>Vercel (Recommended)</h4>
+<code></code>`bash
+<h1>Install Vercel CLI</h1>
+npm install -g vercel
+<h1>Deploy to Vercel</h1>
+vercel
+<h1>Set environment variables</h1>
+vercel env add VITE_API_BASE_URL
+<code></code>`
+<h4>Netlify</h4>
+<code></code>`bash
+<h1>Install Netlify CLI</h1>
+npm install -g netlify-cli
+<h1>Build and deploy</h1>
+npm run build
+netlify deploy --prod --dir=dist
+<code></code>`
+<h4>GitHub Pages</h4>
+<code></code>`bash
+<h1>Install gh-pages</h1>
+npm install --save-dev gh-pages
+<h1>Add to package.json scripts</h1>
+"deploy": "gh-pages -d dist"
+<h1>Deploy</h1>
+npm run build
+npm run deploy
+<code></code>`
+<h3>Post-deployment Verification</h3>
+<h4>1. Functional Testing</h4>
+<ul>
+<li>[ ] All pages load correctly</li>
+<li>[ ] 3D graphics render properly</li>
+<li>[ ] Animations work smoothly</li>
+<li>[ ] Contact form submits successfully</li>
+<li>[ ] All links work correctly</li>
+</ul>
+<h4>2. Performance Testing</h4>
+<ul>
+<li>[ ] Page load time under 3 seconds</li>
+<li>[ ] Lighthouse score above 90</li>
+<li>[ ] Mobile performance optimized</li>
+<li>[ ] CDN properly configured</li>
+</ul>
+<h4>3. SEO and Analytics</h4>
+<ul>
+<li>[ ] Meta tags properly set</li>
+<li>[ ] Open Graph tags configured</li>
+<li>[ ] Google Analytics tracking</li>
+<li>[ ] Search console verification</li>
+</ul>
+<p>---</p>
+<h2>Troubleshooting & Tips</h2>
+<h3>Common Development Issues</h3>
+<h4>1. Three.js Related Problems</h4>
+<strong>Issue:</strong> 3D models not loading
+<code></code>`bash
+<h1>Check model file paths</h1>
+ls -la public/models/
+<h1>Verify model format compatibility</h1>
+<h1>Ensure models are in .glb or .gltf format</h1>
+<code></code>`
+<strong>Solution:</strong>
+<code></code>`typescript
+// Use proper model loading with error handling
+import { useGLTF } from '@react-three/drei'
+<p>function Model({ url }: { url: string }) {
+  const { scene } = useGLTF(url)
+  return <primitive object={scene} />
+}</p>
+<p>// Preload models
+useGLTF.preload('/models/portfolio-item.glb')
+<code></code>`</p>
+<h4>2. Performance Issues</h4>
+<strong>Issue:</strong> Slow rendering or frame drops
+<code></code>`typescript
+// Optimize with React.memo
+const OptimizedComponent = React.memo(({ data }) => {
+  return <ExpensiveComponent data={data} />
+})
+<p>// Use useMemo for expensive calculations
+const expensiveValue = useMemo(() => {
+  return heavyCalculation(props.data)
+}, [props.data])
+<code></code>`</p>
+<strong>Solution:</strong>
+<code></code>`typescript
+// Implement level of detail (LOD)
+import { Lod } from '@react-three/drei'
+<Lod distances={[0, 10, 20]}>
+  <HighDetailModel />  {/<em> Close </em>/}
+  <MediumDetailModel /> {/<em> Medium </em>/}
+  <LowDetailModel />   {/<em> Far </em>/}
+</Lod>
+<code></code>`
+<h4>3. TypeScript Errors</h4>
+<strong>Issue:</strong> Three.js type definitions
+<code></code>`bash
+<h1>Install additional type definitions</h1>
+npm install --save-dev @types/three
+<code></code>`
+<strong>Solution:</strong>
+<code></code>`typescript
+// Create custom type definitions
+// types/three-extensions.d.ts
+declare module 'three/examples/jsm/loaders/GLTFLoader' {
+  export class GLTFLoader {
+    load(url: string, onLoad: (gltf: any) => void): void
+  }
+}
+<code></code>`
+<h4>4. Build Issues</h4>
+<strong>Issue:</strong> Vite build failures
+<code></code>`bash
+<h1>Clear cache and rebuild</h1>
+rm -rf node_modules/.vite
+npm run build
+<code></code>`
+<strong>Solution:</strong>
+<code></code>`typescript
+// vite.config.ts - Add proper optimizations
+export default defineConfig({
+  optimizeDeps: {
+    include: [
+      'three',
+      '@react-three/fiber',
+      '@react-three/drei',
+      'gsap'
+    ]
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          three: ['three', '@react-three/fiber', '@react-three/drei']
+        }
+      }
+    }
+  }
+})
+<code></code>`
+<h3>Performance Optimization Tips</h3>
+<h4>1. 3D Model Optimization</h4>
+<code></code>`bash
+<h1>Use Draco compression for models</h1>
+<h1>Models should be under 1MB each</h1>
+<h1>Use .glb format for better compression</h1>
+<h1>Optimize textures</h1>
+<h1>Use WebP format for images</h1>
+<h1>Keep texture resolution reasonable (1024x1024 max)</h1>
+<code></code>`
+<h4>2. Code Splitting</h4>
+<code></code>`typescript
+// Lazy load heavy components
+const Portfolio3D = lazy(() => import('./components/Portfolio3D'))
+<p>// Use Suspense for loading states
+<Suspense fallback={<LoadingSpinner />}>
+  <Portfolio3D />
+</Suspense>
+<code></code>`</p>
+<h4>3. Animation Performance</h4>
+<code></code>`typescript
+// Use GSAP's performance optimizations
+gsap.set(element, { force3D: true }) // Hardware acceleration
+gsap.ticker.fps(60) // Limit frame rate if needed
+<p>// Batch DOM updates
+gsap.set([element1, element2, element3], {
+  opacity: 0,
+  y: 50
+})
+<code></code>`</p>
+<h3>Browser Compatibility</h3>
+<h4>Supported Browsers</h4>
+<ul>
+<li><strong>Chrome:</strong> 90+ (Recommended)</li>
+<li><strong>Firefox:</strong> 88+</li>
+<li><strong>Safari:</strong> 14+</li>
+<li><strong>Edge:</strong> 90+</li>
+</ul>
+<h4>Fallbacks for Older Browsers</h4>
+<code></code>`typescript
+// Check WebGL support
+function checkWebGLSupport() {
+  try {
+    const canvas = document.createElement('canvas')
+    return !!(window.WebGLRenderingContext && 
+             canvas.getContext('webgl'))
+  } catch (e) {
+    return false
+  }
+}
+<p>// Provide fallback content
+if (!checkWebGLSupport()) {
+  // Show static images instead of 3D content
+}
+<code></code>`</p>
+<h3>Debugging Tools</h3>
+<h4>Development Tools</h4>
+<code></code>`bash
+<h1>React Developer Tools</h1>
+<h1>Install browser extension for React debugging</h1>
+<h1>Three.js Inspector</h1>
+<h1>Add to development environment</h1>
+npm install --save-dev three-devtools
+<code></code>`
+<h4>Performance Monitoring</h4>
+<code></code>`typescript
+// Add performance monitoring
+const observer = new PerformanceObserver((list) => {
+  for (const entry of list.getEntries()) {
+    console.log('Performance:', entry)
+  }
+})
+observer.observe({ entryTypes: ['measure', 'navigation'] })
+<code></code>`
+<p>---</p>
+<h2>Performance Optimization</h2>
+<h3>Bundle Size Optimization</h3>
+<h4>1. Analyze Bundle Size</h4>
+<code></code>`bash
+<h1>Install bundle analyzer</h1>
+npm install --save-dev rollup-plugin-visualizer
+<h1>Add to vite.config.ts</h1>
+import { visualizer } from 'rollup-plugin-visualizer'
+<p>export default defineConfig({
+  plugins: [
+    react(),
+    visualizer({
+      filename: 'dist/stats.html',
+      open: true
+    })
+  ]
+})
+<code></code>`</p>
+<h4>2. Code Splitting Strategies</h4>
+<code></code>`typescript
+// Route-based splitting
+const Home = lazy(() => import('./pages/Home'))
+const Portfolio = lazy(() => import('./pages/Portfolio'))
+const Contact = lazy(() => import('./pages/Contact'))
+<p>// Component-based splitting
+const Heavy3DComponent = lazy(() => 
+  import('./components/Heavy3DComponent')
+)
+<code></code>`</p>
+<h4>3. Tree Shaking</h4>
+<code></code>`typescript
+// Import only what you need
+import { Vector3, Mesh } from 'three'
+// Instead of: import * as THREE from 'three'
+<p>// Use named imports for utilities
+import { debounce } from 'lodash-es'
+// Instead of: import _ from 'lodash'
+<code></code>`</p>
+<h3>Runtime Performance</h3>
+<h4>1. Memory Management</h4>
+<code></code>`typescript
+// Dispose of Three.js resources
+useEffect(() => {
+  return () => {
+    // Cleanup geometries
+    geometry.dispose()
+    
+    // Cleanup materials
+    material.dispose()
+    
+    // Cleanup textures
+    texture.dispose()
+    
+    // Remove from scene
+    scene.remove(mesh)
+  }
+}, [])
+<code></code>`
+<h4>2. Efficient Rendering</h4>
+<code></code>`typescript
+// Use object pooling for frequently created objects
+const objectPool = new Array(100).fill(null).map(() => new Vector3())
+<p>// Reuse objects instead of creating new ones
+const getPooledVector = () => {
+  return objectPool.pop() || new Vector3()
+}
+<code></code>`</p>
+<p>---</p>
+<h2>Contributing Guidelines</h2>
+<h3>Development Standards</h3>
+<h4>1. Code Style</h4>
+<ul>
+<li>Follow TypeScript strict mode</li>
+<li>Use ESLint configuration provided</li>
+<li>Maintain consistent naming conventions</li>
+<li>Write self-documenting code with clear variable names</li>
+</ul>
+<h4>2. Component Guidelines</h4>
+<code></code>`typescript
+// Component template
+import React, { useEffect, useRef } from 'react'
+import './ComponentName.css'
+<p>interface ComponentNameProps {
+  // Define all props with types
+  title: string
+  isVisible?: boolean
+}</p>
+<p>export const ComponentName: React.FC<ComponentNameProps> = ({
+  title,
+  isVisible = true
+}) => {
+  // Hooks at the top
+  const ref = useRef<HTMLDivElement>(null)
+  
+  // Effects
+  useEffect(() => {
+    // Effect logic
+  }, [])
+  
+  // Event handlers
+  const handleClick = () => {
+    // Handler logic
+  }
+  
+  // Render
+  return (
+    <div ref={ref} className="component-name">
+      {/<em> JSX content </em>/}
+    </div>
+  )
+}
+<code></code>`</p>
+<h4>3. Git Workflow</h4>
+<code></code>`bash
+<h1>Feature development</h1>
+git checkout -b feature/component-name
+git commit -m "feat: add new component"
+git push origin feature/component-name
+<h1>Bug fixes</h1>
+git checkout -b fix/issue-description
+git commit -m "fix: resolve rendering issue"
+<h1>Documentation</h1>
+git commit -m "docs: update setup instructions"
+<code></code>`
+<h3>Pull Request Process</h3>
+<ol>
+<li><strong>Create Feature Branch:</strong> Branch from main</li>
+<li><strong>Implement Changes:</strong> Follow coding standards</li>
+<li><strong>Test Thoroughly:</strong> Ensure no regressions</li>
+<li><strong>Update Documentation:</strong> Keep docs current</li>
+<li><strong>Submit PR:</strong> Include detailed description</li>
+<li><strong>Code Review:</strong> Address feedback promptly</li>
+<li><strong>Merge:</strong> Squash commits if needed</li>
+</ol>
+<p>---</p>
+<strong>Project Plan Generated:</strong> June 2, 2025  
+<strong>Last Updated:</strong> June 2, 2025  
+<strong>Version:</strong> 1.0
+<em>This comprehensive project plan provides everything needed to understand, set up, develop, and deploy the Portfolio Website project. For questions or contributions, please refer to the repository's issue tracker.</em>
+</body>
+</html>
