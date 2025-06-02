@@ -1,0 +1,132 @@
+# Documentation Section Generation Prompt
+
+## Task
+Generate comprehensive content for a specific documentation section based on repository analysis and the overall documentation outline.
+
+## Context
+You are continuing the documentation generation process. Use the meta-prompt guidelines and the generated outline to create detailed, accurate content for the specified section.
+
+## Input Data
+- **Section Name**: {SECTION_NAME}
+- **Section Description**: {SECTION_DESCRIPTION}
+- **Key Points to Cover**: {KEY_POINTS}
+- **Repository Data**: {REPOSITORY_DATA}
+- **Project Metadata**: {PROJECT_METADATA}
+- **AI Learning Context**: {AI_CONTEXT}
+
+## Content Requirements
+
+### Writing Standards
+- Use clear, professional language appropriate for developers
+- Include specific examples using actual code/files from the repository
+- Provide actionable instructions and commands
+- Reference real file paths, function names, and configurations
+- Use proper markdown formatting with code blocks and syntax highlighting
+
+### Section-Specific Guidelines
+
+**Project Overview:**
+- Start with a compelling one-sentence description
+- Explain the problem this project solves
+- List 3-5 key features with brief explanations
+- Include current status (alpha, beta, stable, etc.)
+- Add relevant badges if mentioned in README
+
+**Technology Stack:**
+- List primary language and version requirements
+- Include major frameworks and their versions
+- Mention build tools and package managers
+- Note any special runtime requirements
+- Organize by category (Backend, Frontend, Database, etc.)
+
+**Installation:**
+- Start with prerequisites (OS, language versions, etc.)
+- Provide step-by-step installation commands
+- Include package manager instructions (npm, pip, etc.)
+- Add verification steps to confirm installation
+- Include troubleshooting for common issues
+
+**Configuration:**
+- List all environment variables with descriptions
+- Explain configuration file locations and formats
+- Provide example configurations
+- Note security considerations for sensitive values
+- Include default vs production configurations
+
+**Usage:**
+- Start with the simplest possible example
+- Show common use cases with code examples
+- Include command-line usage if applicable
+- Reference actual function/class names from the code
+- Provide expected outputs
+
+**API Documentation:**
+- Document main classes and functions
+- Include parameter types and descriptions
+- Show return value formats
+- Provide code examples for each major function
+- Include error handling examples
+
+**Project Structure:**
+- Explain the purpose of each major directory
+- Highlight important files and their roles
+- Use a tree structure for clarity
+- Focus on files developers need to understand
+- Explain any architectural patterns used
+
+**Development:**
+- Explain how to set up a development environment
+- List build and test commands
+- Include code formatting and linting instructions
+- Explain the contribution workflow
+- Reference actual scripts and commands from the repo
+
+**Testing:**
+- Explain how to run the test suite
+- Show how to run specific tests
+- Include coverage reporting commands
+- Explain test organization and structure
+- Provide guidance for writing new tests
+
+**Deployment:**
+- Provide production deployment steps
+- Include environment setup instructions
+- Explain CI/CD pipeline if present
+- Cover monitoring and logging setup
+- Include scaling and maintenance considerations
+
+## Content Structure
+
+1. **Brief Introduction** (1-2 sentences explaining the section's purpose)
+2. **Main Content** (detailed information organized logically)
+3. **Code Examples** (where applicable, using real repository code)
+4. **Additional Notes** (tips, warnings, or related information)
+
+## Quality Standards
+
+- **Accuracy**: Base all content on actual repository analysis
+- **Completeness**: Cover all key points specified in the outline
+- **Clarity**: Use simple, direct language
+- **Actionability**: Provide specific steps users can follow
+- **Consistency**: Match the tone and style of other sections
+
+## Code Examples
+- Use proper syntax highlighting with language tags
+- Include actual file paths and function names from the repository
+- Show realistic, working examples
+- Include expected outputs where helpful
+- Add comments to explain complex parts
+
+## Error Handling
+If specific information is not available:
+- State what information is missing
+- Provide general best practices for that type of project
+- Suggest where users might find more information
+- Use placeholder text that's clearly marked as such
+
+## Output Format
+Provide the section content in clean markdown format. Do not include the section header (##) as it will be added during formatting. Focus on the content that goes under the section header.
+
+---
+
+**Generate the {SECTION_NAME} section content now:**

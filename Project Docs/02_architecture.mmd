@@ -1,0 +1,22 @@
+```mermaid
+flowchart TD
+    subgraph Context
+        A1[📁 ai_learning/]
+        A2[📁 project_docs/gitread/]
+        A3[📁 cloned_repo/]
+    end
+
+    subgraph GitRead Agent
+        B1[🔁 Clone & Parse Repo]
+        B2[📚 Query ai_learning/ for insights]
+        B3[🧠 Generate Outline (Prompt 1)]
+        B4[✍️ Fill Sections (Prompt 2...N)]
+        B5[📄 Create project_doc.md]
+        B6[📦 Save to project_docs/gitread/]
+    end
+
+    A3 --> B1
+    A1 --> B2
+    A2 --> B2
+    B1 --> B3 --> B4 --> B5 --> B6
+```

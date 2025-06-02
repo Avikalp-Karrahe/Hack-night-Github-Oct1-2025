@@ -1,0 +1,144 @@
+# Documentation Outline Generation Prompt
+
+## Task
+Analyze the provided repository data and generate a structured outline for comprehensive project documentation. This outline will guide the subsequent section-by-section documentation generation.
+
+## Input Data Available
+- **Repository Structure**: File tree, directory organization
+- **README Analysis**: Existing documentation, badges, links
+- **Code Analysis**: Languages, frameworks, dependencies
+- **Configuration Files**: Build scripts, environment configs
+- **Project Metadata**: Type, complexity, maturity level
+
+## Outline Requirements
+
+### Format
+Generate a JSON structure with the following format:
+```json
+{
+  "project_name": "Project Name",
+  "project_type": "library|application|framework|tool|other",
+  "complexity": "simple|moderate|complex",
+  "primary_language": "detected_language",
+  "sections": {
+    "Section Name": {
+      "priority": "high|medium|low",
+      "description": "What this section should cover",
+      "key_points": ["point1", "point2", "point3"],
+      "dependencies": ["other_sections_this_depends_on"]
+    }
+  }
+}
+```
+
+### Section Selection Criteria
+Include sections based on repository characteristics:
+
+**Always Include (High Priority):**
+- Project Overview
+- Installation
+- Usage
+
+**Include if Applicable (Medium Priority):**
+- Technology Stack (if multiple technologies)
+- Configuration (if config files present)
+- API Documentation (if library/framework)
+- Project Structure (if complex structure)
+- Development (if contributing guidelines or dev setup)
+
+**Include if Relevant (Low Priority):**
+- Testing (if test files present)
+- Deployment (if deployment configs present)
+- Contributing (if CONTRIBUTING.md or similar)
+- License (if LICENSE file present)
+
+### Content Guidance for Each Section
+
+**Project Overview:**
+- Purpose and main functionality
+- Key features and benefits
+- Target audience
+- Current status/maturity
+
+**Technology Stack:**
+- Primary programming language
+- Major frameworks and libraries
+- Build tools and dependencies
+- Runtime requirements
+
+**Installation:**
+- Prerequisites and system requirements
+- Step-by-step installation instructions
+- Verification steps
+- Common installation issues
+
+**Configuration:**
+- Environment variables
+- Configuration files and their purposes
+- Default vs custom configurations
+- Security considerations
+
+**Usage:**
+- Basic usage examples
+- Common workflows
+- Command-line interface (if applicable)
+- Code examples with actual function names
+
+**API Documentation:**
+- Main classes and functions
+- Parameters and return values
+- Usage examples
+- Error handling
+
+**Project Structure:**
+- Key directories and their purposes
+- Important files and their roles
+- Architecture overview
+- Data flow (if applicable)
+
+**Development:**
+- Local development setup
+- Build and test commands
+- Coding standards
+- Contribution workflow
+
+**Testing:**
+- How to run tests
+- Test structure and organization
+- Coverage information
+- Writing new tests
+
+**Deployment:**
+- Production deployment steps
+- Environment setup
+- CI/CD pipeline
+- Monitoring and maintenance
+
+## Analysis Instructions
+
+1. **Examine the repository structure** to understand the project organization
+2. **Identify the project type** based on file patterns and structure
+3. **Assess complexity** based on number of files, dependencies, and architecture
+4. **Determine primary audience** (developers, end-users, etc.)
+5. **Select relevant sections** based on what's actually present in the repository
+6. **Prioritize sections** based on user needs and project characteristics
+7. **Define key points** that each section should address
+8. **Identify dependencies** between sections for logical flow
+
+## Quality Checks
+
+- Ensure all high-priority sections are included
+- Verify section priorities align with project type
+- Check that key points are specific and actionable
+- Confirm dependencies create a logical documentation flow
+- Validate that the outline covers all major aspects of the project
+
+## Output Format
+Provide only the JSON outline structure. Do not include explanatory text or markdown formatting around the JSON.
+
+---
+
+**Repository Data:**
+{REPOSITORY_DATA}
+
+**Generate the documentation outline now:**
