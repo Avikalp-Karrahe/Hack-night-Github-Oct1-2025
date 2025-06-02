@@ -317,27 +317,27 @@ scalable, and maintainable solution.
 
 Each repository generates ready-to-use Claude Desktop prompts:
 
-**Example:** `mui_material-u_documentation_claude_prompts.md`
+**Example:** `facebook_reac_documentation_claude_prompts.md`
 
 ```markdown
-# Claude Desktop Prompts for Building mui_material-u
+# Claude Desktop Prompts for Building facebook_reac
 
 ## Project Information
-- **GitHub URL:** https://github.com/mui/material-ui
+- **GitHub URL:** https://github.com/facebook/react
 - **Primary Language:** JavaScript
-- **Project Type:** React Component Library
-- **Generated:** 2025-06-02T02:37:38
+- **Project Type:** Web Frontend
+- **Generated:** 2025-06-02T08:22:42
 
 ## Prompt 1: Project Setup & Architecture Planning
 
-You are a senior full-stack developer and software architect. I need you to help me build a REST API application using Unknown.
+You are a senior full-stack developer and software architect. I need you to help me build a React JavaScript library for building user interfaces using Unknown.
 
 **Project Context:**
 - Primary Language: Unknown
 - Project Type: Unknown
-- Reference Repository: https://github.com/mui/material-ui
+- Reference Repository: https://github.com/facebook/react
 - Target Complexity: Based on 0 files
-- Key Features to Build: REST API, Database integration, Web interface, Command-line interface, Testing framework, User interface
+- Key Features to Build: Component-based architecture, Virtual DOM, JSX syntax, State management, Hooks API
 
 **Your Role:**
 - Expert Unknown developer with 10+ years experience
@@ -346,7 +346,7 @@ You are a senior full-stack developer and software architect. I need you to help
 - Code quality advocate
 
 **Task:**
-Help me plan and set up the foundational architecture for a REST API application:
+Help me plan and set up the foundational architecture for a React JavaScript library for building user interfaces:
 
 1. **Project Initialization**
    - Create proper directory structure
