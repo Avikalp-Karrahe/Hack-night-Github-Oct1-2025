@@ -317,7 +317,7 @@ scalable, and maintainable solution.
 
 Each repository generates ready-to-use Claude Desktop prompts:
 
-**Example:** `facebook_reac_documentation_claude_prompts.md`
+**Example:** [`facebook_reac_documentation_claude_prompts.md`](./outputs/facebook/facebook_reac_documentation_claude_prompts.md)
 
 ```markdown
 # Claude Desktop Prompts for Building facebook_reac
