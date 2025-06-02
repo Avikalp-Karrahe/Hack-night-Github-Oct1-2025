@@ -229,12 +229,12 @@ PromptSwitch can handle repositories of all sizes and complexities. Here are som
 
 **[Microsoft VS Code](https://github.com/microsoft/vscode)** - TypeScript Code Editor  
 **Generated Files:** [`outputs/microsoft/`](./outputs/microsoft/)
-- 📄 [Markdown Documentation](./outputs/microsoft/microsoft_vscode_documentation.md) (1,723 lines)
+- 📄 [Markdown Documentation](./outputs/microsoft/microsoft_vscode_documentation.md) (Available)
 - 🤖 [Claude Prompts](./outputs/microsoft/microsoft_vscode_documentation_claude_prompts.md) (317 lines)
 
 **[Linux Kernel](https://github.com/torvalds/linux)** - C Operating System Kernel  
 **Generated Files:** [`outputs/torvalds/`](./outputs/torvalds/)
-- 📄 [Markdown Documentation](./outputs/torvalds/torvalds_linux_documentation.md) (18,705 lines)
+- 📄 [Markdown Documentation](./outputs/torvalds/torvalds_linux_documentation.md) (Available)
 - 📄 [PDF Version](./outputs/torvalds/torvalds_linux_documentation.pdf) (Professional format)
 - 🤖 [Claude Prompts](./outputs/torvalds/torvalds_linux_documentation_claude_prompts.md) (317 lines)
 
@@ -245,6 +245,71 @@ PromptSwitch can handle repositories of all sizes and complexities. Here are som
 - 📄 [Markdown Documentation](./outputs/Glacian22/Glacian22_Minimal-React-Portfolio_documentation.md) (383 lines)
 - 📄 [PDF Version](./outputs/Glacian22/Glacian22_Minimal-React-Portfolio_documentation.pdf) (Professional format)
 - 🤖 [Claude Prompts](./outputs/Glacian22/Glacian22_Minimal-React-Portfolio_documentation_claude_prompts.md) (317 lines)
+
+### 📖 Example Output: Facebook React Documentation
+
+Here's a preview of the comprehensive documentation generated for the Facebook React repository:
+
+```markdown
+# gitread_react
+
+**Primary Language:** javascript  
+**Project Type:** Web Frontend  
+**Complexity:** Complex  
+**Generated:** 2025-06-02T08:22:42.412657
+
+## Table of Contents
+
+- [Technology Stack](#technology-stack)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [License](#license)
+- [Project Summary & Goals](#project-summary-&-goals)
+- [Key Features & Use Cases](#key-features-&-use-cases)
+- [Setup Instructions](#setup-instructions)
+- [Configuration Required](#configuration-required)
+- [Major Components & Modules](#major-components-&-modules)
+- [Execution Plan](#execution-plan)
+- [Development Workflow](#development-workflow)
+- [Testing Strategy](#testing-strategy)
+- [Deployment Checklist](#deployment-checklist)
+- [Troubleshooting & Tips](#troubleshooting-&-tips)
+- [Performance Optimization](#performance-optimization)
+- [Contributing Guidelines](#contributing-guidelines)
+
+## Technology Stack
+
+This project leverages modern technologies and frameworks to deliver a robust, 
+scalable, and maintainable solution.
+
+### Programming Languages
+
+- **javascript** (Primary): 58.4% - 3577 files
+- **markdown**: 27.6% - 1689 files
+- **typescript**: 8.1% - 499 files
+- **json**: 2.3% - 138 files
+- **css**: 1.6% - 99 files
+- **html**: 1.3% - 79 files
+- **yaml**: 0.5% - 28 files
+- **shell**: 0.2% - 10 files
+- **cpp**: 0.1% - 4 files
+
+### File Breakdown
+
+| Language | Files | Percentage | Purpose |
+|----------|-------|------------|----------|
+| javascript | 3577 | 58.4% | Application development and functionality |
+| markdown | 1689 | 27.6% | Documentation and guides |
+| typescript | 499 | 8.1% | Type-safe development |
+| json | 138 | 2.3% | Configuration and data |
+| css | 99 | 1.6% | Styling and presentation |
+| html | 79 | 1.3% | Markup and templates |
+| yaml | 28 | 0.5% | Configuration files |
+| shell | 10 | 0.2% | Build and deployment scripts |
+| cpp | 4 | 0.1% | Native extensions |
+```
+
+**Full Documentation:** [📄 View Complete React Documentation](./outputs/facebook/facebook_reac_documentation.md) (1,131 lines)
 
 ### 🎯 PromptSwitch Footer
 
