@@ -451,12 +451,24 @@ PromptSwitch includes built-in quality assurance:
 - `tests/`: Test suites
 - `Learn_AI/`: Knowledge base
 - `Project Docs/`: Project documentation
+- `plugins/`: Extensible plugin system
+- `CONTRIBUTING.md`: Comprehensive contribution guidelines
 
 ### Contributing
 
+We welcome contributions! Please see our comprehensive [CONTRIBUTING.md](CONTRIBUTING.md) guide for detailed information on:
+
+- 🏗️ **Project Architecture**: Understanding the codebase structure
+- 🚀 **Development Setup**: Getting your environment ready
+- 📝 **Coding Standards**: Following our style guidelines
+- 🧪 **Testing Procedures**: Ensuring code quality
+- 🎤 **Voice Integration**: Guidelines for voice-enabled features
+- 🔌 **Plugin Development**: Creating custom extensions
+
+**Quick Start for Contributors:**
 1. Fork the repository
 2. Create a feature branch: `git checkout -b feature-name`
-3. Make your changes and add tests
+3. Follow the guidelines in [CONTRIBUTING.md](CONTRIBUTING.md)
 4. Run the test suite: `python -m pytest`
 5. Submit a pull request
 
@@ -466,6 +478,7 @@ PromptSwitch includes built-in quality assurance:
 - Use Black for code formatting: `black .`
 - Add type hints where appropriate
 - Write comprehensive docstrings
+- See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed standards
 
 ## 📈 Performance
 
