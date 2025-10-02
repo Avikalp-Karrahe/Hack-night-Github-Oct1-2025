@@ -24,6 +24,14 @@ chardet>=5.2.0
 # reportlab>=4.0.7
 # weasyprint>=60.2
 
+# Additional dependencies
+beautifulsoup4>=4.12.0
+json5>=0.9.0
+PyPDF2>=3.0.0
+python-dotenv>=1.0.0
+opik>=0.1.0
+weaviate-client>=3.25.0
+
 # Development and testing
 pytest>=7.4.3
 pytest-cov>=4.1.0

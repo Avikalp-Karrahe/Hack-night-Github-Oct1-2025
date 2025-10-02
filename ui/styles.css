@@ -1,0 +1,355 @@
+/* Custom CSS for PromptSwitch - Enhanced with GitBlueprint Landing Page Design */
+
+/* Base styles and animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+    to { box-shadow: 0 0 30px rgba(59, 130, 246, 0.6); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Enhanced form styling */
+.form-enhanced {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Status indicator enhancements */
+.status-indicator {
+    transition: all 0.3s ease;
+}
+
+.status-indicator.processing {
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    color: white;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.status-indicator.success {
+    background: linear-gradient(90deg, #10b981, #059669);
+    color: white;
+}
+
+.status-indicator.error {
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+    color: white;
+}
+
+/* Results section enhancements */
+.results-content {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.result-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(229, 231, 235, 0.5);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.result-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Weaviate section specific styles */
+.weaviate-toggle-expanded {
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6) !important;
+    color: white !important;
+    transform: scale(1.05);
+}
+
+.weaviate-content-expanded {
+    opacity: 1 !important;
+    max-height: none !important;
+    overflow: visible !important;
+}
+
+/* Analysis cards */
+.analysis-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.9));
+    border: 1px solid rgba(229, 231, 235, 0.6);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.analysis-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.analysis-card:hover::before {
+    opacity: 1;
+}
+
+.analysis-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Metric cards */
+.metric-card {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+    transform: scale(1.02);
+}
+
+.metric-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3b82f6;
+    margin-bottom: 0.25rem;
+}
+
+.metric-label {
+    font-size: 0.875rem;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Similar repository cards */
+.similar-repo-card {
+    background: rgba(248, 250, 252, 0.8);
+    border: 1px solid rgba(229, 231, 235, 0.6);
+    border-radius: 8px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.similar-repo-card:hover {
+    background: rgba(59, 130, 246, 0.05);
+    border-color: rgba(59, 130, 246, 0.3);
+    transform: translateX(4px);
+}
+
+.repo-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 0.75rem;
+}
+
+/* Architecture pattern tags */
+.pattern-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(5, 150, 105, 0.1));
+    color: #059669;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 20px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin: 0.125rem;
+    transition: all 0.3s ease;
+}
+
+.pattern-tag:hover {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2));
+    transform: scale(1.05);
+}
+
+/* Recommendation cards */
+.recommendation-card {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(59, 130, 246, 0.05));
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.recommendation-card::before {
+    content: '💡';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.25rem;
+    opacity: 0.7;
+}
+
+.recommendation-card:hover {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(59, 130, 246, 0.1));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(139, 92, 246, 0.2);
+}
+
+.recommendation-title {
+    font-weight: 600;
+    color: #8b5cf6;
+    margin-bottom: 0.5rem;
+}
+
+.recommendation-description {
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+/* Feature cards in the features section */
+.feature-card-enhanced {
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card-enhanced::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+.feature-card-enhanced:hover::before {
+    transform: translateX(100%);
+}
+
+/* Loading states */
+.loading-skeleton {
+    background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Responsive enhancements */
+@media (max-width: 768px) {
+    .analysis-card {
+        padding: 1rem;
+    }
+    
+    .metric-card {
+        padding: 0.75rem;
+    }
+    
+    .recommendation-card {
+        padding: 1rem;
+    }
+    
+    .similar-repo-card {
+        padding: 0.75rem;
+    }
+}
+
+/* Focus states for accessibility */
+button:focus,
+input:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+    .weaviate-section,
+    .features-section,
+    nav,
+    footer {
+        display: none !important;
+    }
+    
+    .results-section {
+        background: white !important;
+        box-shadow: none !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .analysis-card,
+    .metric-card,
+    .similar-repo-card,
+    .recommendation-card {
+        border-width: 2px;
+        border-color: #000;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

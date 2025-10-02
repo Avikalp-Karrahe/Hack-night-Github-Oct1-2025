@@ -17,6 +17,15 @@ from pathlib import Path
 from datetime import datetime, timezone
 from typing import Dict, Any, List, Optional
 
+# Opik for LLM observability and monitoring
+import opik
+from opik import track
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
 # Add project root to path
 project_root = Path(__file__).parent
 sys.path.insert(0, str(project_root))
@@ -29,6 +38,10 @@ from agents.formatter import DocumentFormatter
 from agents.test_generator import TestGenerator
 from agents.review_agent import ReviewAgent
 from agents.enhanced_claude_generator import EnhancedClaudeGenerator
+from agents.weaviate_analyzer import EnhancedWeaviateAnalyzer
+
+# Initialize Opik client
+opik_client = opik.Opik()
 
 
 class PromptSwitchAgent:
@@ -48,21 +61,26 @@ class PromptSwitchAgent:
         self.output_dir.mkdir(exist_ok=True)
         self.prompts_dir.mkdir(exist_ok=True)
         
-        # Initialize agent components (Prompt Chain)
+        # Initialize paths for AI learning materials
+        self.ai_learning_path = Path("ai_learning")
+        self.ai_learning_path.mkdir(exist_ok=True)
+        
+        # Initialize paths for project documentation
+        self.project_docs_path = Path("project_docs")
+        self.project_docs_path.mkdir(exist_ok=True)
+        
+        # Initialize agents
         self.cloner = RepoCloner()
         self.parser = RepoParser()
         self.planner = DocPlanner()
         self.filler = SectionFiller()
         self.formatter = DocumentFormatter()
-        self.test_generator = TestGenerator(prompts_dir=str(self.prompts_dir), 
-                                          outputs_dir=str(self.output_dir))
-        self.reviewer = ReviewAgent(prompts_dir=str(self.prompts_dir), 
-                                   outputs_dir=str(self.output_dir))
-        self.enhanced_claude_generator = EnhancedClaudeGenerator()
+        self.test_generator = TestGenerator()
+        self.reviewer = ReviewAgent()
+        self.claude_generator = EnhancedClaudeGenerator()
+        self.weaviate_analyzer = EnhancedWeaviateAnalyzer()
         
-        # Load AI learning context and system prompts
-        self.ai_learning_path = project_root / "Learn_AI"
-        self.project_docs_path = project_root / "Project Docs"
+        # Load system prompt for meta-prompting
         self.system_prompt = self._load_system_prompt()
     
     def _extract_repo_name(self, github_url: str) -> str:
@@ -97,6 +115,7 @@ class PromptSwitchAgent:
         # Fallback: use last part of URL
         return url.split('/')[-1] or "unknown_repo"
     
+    @track(name="promptswitch_pipeline")
     def process_repository(self, github_url, output_filename="project_doc.md", 
                          enable_testing=True, enable_review=True):
         """
@@ -175,6 +194,17 @@ class PromptSwitchAgent:
             print("🔍 Parsing repository structure...")
             repo_data = self.parser.parse_repository(repo_path)
             pipeline_results['outputs']['repo_data'] = repo_data
+            
+            # Step 2.5: Analyze repository patterns with Weaviate
+            print("🧠 Analyzing repository patterns with Weaviate...")
+            weaviate_analysis = self.weaviate_analyzer.analyze_repository(repo_data)
+            pipeline_results['outputs']['weaviate_analysis'] = weaviate_analysis
+            
+            # Enhance repo_data with Weaviate insights
+            if weaviate_analysis.get('enhanced_analysis'):
+                repo_data['weaviate_insights'] = weaviate_analysis
+                print(f"✅ Found {len(weaviate_analysis.get('similar_repositories', []))} similar repositories")
+                print(f"📝 Generated {len(weaviate_analysis.get('recommendations', []))} recommendations")
             
             # Step 3: Load AI learning context
             print("🧠 Loading AI learning context...")
@@ -331,6 +361,7 @@ class PromptSwitchAgent:
             pipeline_results['errors'].append(error_msg)
             pipeline_results['success'] = False
             pipeline_results['end_time'] = datetime.now(timezone.utc).isoformat()
+            
             raise
         finally:
             # Cleanup cloned repository (but not local directories)
@@ -583,7 +614,7 @@ class PromptSwitchAgent:
     
     def _generate_claude_prompts(self, github_url, repo_data, documentation, base_filename):
         """Generate enhanced Claude Desktop prompts using the new generator."""
-        return self.enhanced_claude_generator.generate_enhanced_prompts(
+        return self.claude_generator.generate_enhanced_prompts(
             github_url=github_url,
             repo_data=repo_data,
             documentation=documentation,

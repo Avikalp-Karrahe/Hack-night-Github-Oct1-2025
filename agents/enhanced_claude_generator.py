@@ -13,6 +13,10 @@ from pathlib import Path
 from typing import Dict, List, Optional, Any, Tuple
 from datetime import datetime
 
+# Opik for LLM observability
+import opik
+from opik import track
+
 
 class EnhancedClaudeGenerator:
     """
@@ -94,6 +98,7 @@ class EnhancedClaudeGenerator:
             'cli_tool': ['node', 'python', 'go', 'rust']
         }
     
+    @track(name="claude_prompt_generation")
     def generate_enhanced_prompts(self, github_url: str, repo_data: Dict[str, Any], 
                                 documentation: str, base_filename: str) -> str:
         """
@@ -102,11 +107,11 @@ class EnhancedClaudeGenerator:
         Args:
             github_url: Repository URL
             repo_data: Parsed repository data
-            documentation: Generated documentation content
-            base_filename: Base filename for reference
+            documentation: Generated documentation
+            base_filename: Base filename for outputs
             
         Returns:
-            Enhanced Claude Desktop prompts content
+            Formatted Claude Desktop prompts
         """
         # Deep analysis of the project
         tech_stack = self._analyze_technology_stack(repo_data)

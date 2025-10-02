@@ -1,10 +1,11 @@
 # PromptSwitch 🤖📚
 
-> An AI-powered agent that reads GitHub repositories and generates comprehensive, structured project documentation using prompt chaining and meta-prompting techniques.
+> An AI-powered agent that reads GitHub repositories and generates comprehensive, structured project documentation using prompt chaining and meta-prompting techniques. Now featuring a beautiful web interface inspired by GitBlueprint!
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen.svg)](http://localhost:8080)
 
 ## 🎯 Overview
 
@@ -14,6 +15,8 @@ PromptSwitch Agent is an intelligent documentation generator that analyzes GitHu
 - **Meta-Prompting**: Self-improving prompt strategies
 - **Context Integration**: Uses prior AI knowledge from `Learn_AI/` directory
 - **Modular Architecture**: Separate agents for cloning, parsing, planning, and formatting
+- **🆕 Web Interface**: Beautiful GitBlueprint-inspired UI for easy repository analysis
+- **🆕 Live Processing**: Real-time repository analysis with status updates
 
 ## ✨ Key Features
 
@@ -25,6 +28,10 @@ PromptSwitch Agent is an intelligent documentation generator that analyzes GitHu
 - 🛠 **Modular Design**: Clean separation of concerns with dedicated agents
 - 🎯 **Claude Prompts Generation**: Creates tailored Claude Desktop prompts for project recreation
 - 🔄 **Local & Remote Support**: Works with both GitHub URLs and local directories
+- 🌐 **Web Interface**: Beautiful, responsive UI inspired by GitBlueprint design
+- ⚡ **Real-time Processing**: Live status updates and progress tracking
+- 🎨 **Modern UI/UX**: Dark/light theme toggle, responsive design, and intuitive controls
+- 📱 **Mobile Friendly**: Works seamlessly across desktop, tablet, and mobile devices
 
 ## 🏗 Architecture
 
@@ -38,7 +45,13 @@ PromptSwitch/
 │   ├── section_filler.py     # Content generation via prompt chaining
 │   ├── formatter.py          # Document formatting and conversion
 │   ├── test_generator.py     # Automated test generation
-│   └── review_agent.py       # Quality review and validation
+│   ├── review_agent.py       # Quality review and validation
+│   └── weaviate_analyzer.py  # Enhanced AI-powered analysis
+├── ui/                        # Web interface (NEW!)
+│   ├── index.html            # GitBlueprint-inspired UI
+│   ├── script.js             # Frontend logic and API integration
+│   ├── styles.css            # Modern responsive styling
+│   └── backend_server.py     # HTTP server for live processing
 ├── prompts/                   # AI prompt templates
 │   ├── meta_prompt.txt       # Core behavior and guidelines
 │   ├── outline_prompt.txt    # Structure generation prompt
@@ -57,6 +70,43 @@ PromptSwitch/
 ```
 
 ## 🚀 Quick Start
+
+### 🌐 Web Interface (Recommended)
+
+The easiest way to use PromptSwitch is through our beautiful web interface:
+
+1. **Start the servers:**
+   ```bash
+   # Terminal 1: Start the web interface
+   cd ui && python3 -m http.server 8080
+   
+   # Terminal 2: Start the backend server
+   cd ui && python3 backend_server.py 8081
+   ```
+
+2. **Open your browser:**
+   ```
+   http://localhost:8080
+   ```
+
+3. **Analyze any repository:**
+   - Enter a GitHub URL (e.g., `https://github.com/facebook/react`)
+   - Click "Generate Blueprint"
+   - Watch real-time processing with live status updates
+   - View comprehensive analysis results and generated documentation
+
+### 📱 Web Interface Features
+
+- **🎨 Beautiful Design**: GitBlueprint-inspired modern interface
+- **🌓 Theme Toggle**: Switch between light and dark modes
+- **📊 Live Analytics**: Real-time Weaviate analysis and insights
+- **📋 Blueprint Generation**: Comprehensive development blueprints
+- **📱 Responsive**: Works perfectly on desktop, tablet, and mobile
+- **⚡ Real-time Updates**: Live processing status and progress tracking
+
+### 💻 Command Line Interface
+
+For advanced users and automation:
 
 ### Prerequisites
 
@@ -91,13 +141,15 @@ PromptSwitch/
 
 ### Basic Usage
 
-#### Analyze a GitHub Repository
-```bash
-python main.py https://github.com/username/repository
-```
+#### 🌐 Web Interface (Recommended)
+Simply visit `http://localhost:8080` after starting the servers and enter any GitHub URL!
 
-#### Analyze a Local Directory
+#### 📱 Command Line Interface
 ```bash
+# Analyze a GitHub Repository
+python main.py https://github.com/username/repository
+
+# Analyze a Local Directory
 python main.py /path/to/local/project
 ```
 
@@ -190,6 +242,26 @@ PromptSwitch generates comprehensive documentation including:
 - **Regeneration Blocks**: Improvement suggestions
 
 ## 🎬 Demo & Examples
+
+### 🌐 Live Web Interface
+
+Experience PromptSwitch through our beautiful web interface at `http://localhost:8080`:
+
+![PromptSwitch Web Interface](https://img.shields.io/badge/Interface-Live%20Demo-brightgreen)
+
+**Key Features:**
+- **GitBlueprint Design**: Pixel-perfect recreation of the popular GitBlueprint interface
+- **Real-time Processing**: Watch your repository being analyzed with live status updates
+- **Enhanced Analytics**: Comprehensive Weaviate analysis with similarity matching
+- **Blueprint Generation**: Detailed development blueprints with setup instructions
+- **Theme Support**: Beautiful dark and light themes
+- **Mobile Responsive**: Works seamlessly across all devices
+
+**Try These Sample Repositories:**
+- `https://github.com/facebook/react` - React JavaScript Library
+- `https://github.com/microsoft/vscode` - VS Code Editor
+- `https://github.com/vercel/next.js` - Next.js Framework
+- `https://github.com/mui/material-ui` - Material-UI Components
 
 ### 📁 Organized Output Structure
 
@@ -443,6 +515,35 @@ PromptSwitch includes built-in quality assurance:
 
 ## 🛠 Development
 
+### 🌐 Web Interface Development
+
+The web interface is built with modern web technologies:
+
+**Frontend Stack:**
+- **HTML5**: Semantic markup with accessibility features
+- **CSS3**: Modern styling with CSS Grid, Flexbox, and custom properties
+- **Vanilla JavaScript**: No frameworks, pure performance
+- **Responsive Design**: Mobile-first approach with breakpoints
+
+**Backend Integration:**
+- **Python HTTP Server**: Simple static file serving on port 8080
+- **Backend API Server**: Custom Python server on port 8081 for live processing
+- **Real-time Communication**: Polling-based status updates
+- **CORS Support**: Cross-origin requests handled properly
+
+**Development Workflow:**
+```bash
+# Start development servers
+cd ui
+python3 -m http.server 8080 &  # Frontend
+python3 backend_server.py 8081 &  # Backend API
+
+# Open browser
+open http://localhost:8080
+```
+
+### 🔄 Backend Architecture
+
 ### Project Structure
 
 - `agents/`: Core processing modules
@@ -498,6 +599,57 @@ We welcome contributions! Please see our comprehensive [CONTRIBUTING.md](CONTRIB
 
 ### Common Issues
 
+**Issue: "No module named 'weaviate'"**
+```bash
+pip install weaviate-client
+```
+
+**Issue: "Git command not found"**
+- Install Git: https://git-scm.com/downloads
+- Ensure Git is in your PATH
+
+**Issue: "API key not found"**
+- Set your OpenAI API key: `export OPENAI_API_KEY="your-key-here"`
+- Or create a `.env` file with `OPENAI_API_KEY=your-key-here`
+
+**Issue: "Permission denied when cloning"**
+- Ensure you have access to the repository
+- For private repos, use SSH keys or personal access tokens
+
+**Issue: "Weaviate connection failed"**
+- Check your internet connection
+- Verify Weaviate cloud instance is running
+- Confirm API keys are correct
+
+### 🌐 Web Interface Issues
+
+**Issue: "Web interface not loading"**
+```bash
+# Check if servers are running
+lsof -i :8080  # Frontend server
+lsof -i :8081  # Backend server
+
+# Restart servers if needed
+cd ui
+python3 -m http.server 8080 &
+python3 backend_server.py 8081 &
+```
+
+**Issue: "Backend connection failed"**
+- Ensure both servers (8080 and 8081) are running
+- Check browser console for CORS errors
+- Verify no firewall is blocking local connections
+
+**Issue: "Processing stuck or failed"**
+- Check terminal output for error messages
+- Ensure all dependencies are installed
+- Verify GitHub URL is accessible and public
+
+**Issue: "Mobile interface not responsive"**
+- Clear browser cache and reload
+- Ensure you're using a modern browser
+- Check for JavaScript errors in console
+
 **API Rate Limits**
 ```bash
 # Increase retry delay
@@ -538,13 +690,31 @@ Need help? Here's how to get support:
 - Powered by OpenAI and Anthropic AI models
 - Designed for developer experience (DX) optimization
 
-## 🚀 What's Next?
+## 🚀 Future Plans
 
-- 🔄 **Real-time Updates**: Live documentation synchronization
-- 🌐 **Web Interface**: Browser-based documentation generation
-- 🔌 **Plugin System**: Extensible architecture for custom processors
-- 📱 **Mobile App**: On-the-go documentation generation
-- 🤖 **Advanced AI**: GPT-4 and Claude-3 integration
+### 🌐 Web Interface Enhancements
+- **Authentication System**: User accounts and project management
+- **Real-time Collaboration**: Multiple users analyzing repositories together
+- **Advanced Filtering**: Search and filter analysis results
+- **Export Options**: PDF, Word, and custom format exports
+- **Integration APIs**: Webhook support for CI/CD pipelines
+- **Analytics Dashboard**: Usage statistics and insights
+
+### 🤖 AI & Analysis Improvements
+- **Multi-LLM Support**: Integration with Claude, Gemini, and other models
+- **Custom Prompts**: User-defined analysis templates
+- **Advanced Weaviate**: Enhanced similarity search and clustering
+- **Code Quality Metrics**: Deeper static analysis integration
+- **Security Scanning**: Automated vulnerability detection
+- **Performance Analysis**: Runtime and memory profiling
+
+### 🔧 Platform & Infrastructure
+- **Docker Support**: Containerized deployment options
+- **Cloud Deployment**: One-click cloud hosting
+- **API Gateway**: RESTful API for enterprise integration
+- **Database Integration**: Persistent storage for analysis history
+- **Monitoring & Logging**: Comprehensive observability
+- **Scalability**: Horizontal scaling for large repositories
 
 ---
 
