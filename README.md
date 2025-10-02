@@ -1,723 +1,298 @@
-# PromptSwitch 🤖📚
+# GitBlueprint 🚀
 
-> An AI-powered agent that reads GitHub repositories and generates comprehensive, structured project documentation using prompt chaining and meta-prompting techniques. Now featuring a beautiful web interface inspired by GitBlueprint!
+**The AI-Powered Repository Documentation Platform**
 
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen.svg)](http://localhost:8080)
+## 👥 Contributors
 
-## 🎯 Overview
+- **Amy Zhuang** - [LinkedIn](https://www.linkedin.com/in/amy-zhuang/) - Collaborator
 
-PromptSwitch Agent is an intelligent documentation generator that analyzes GitHub repositories and creates clean, structured `project_doc.md` files. It leverages advanced AI techniques including:
+---
 
-- **Prompt Chaining**: Sequential AI prompts for comprehensive analysis
-- **Meta-Prompting**: Self-improving prompt strategies
-- **Context Integration**: Uses prior AI knowledge from `Learn_AI/` directory
-- **Modular Architecture**: Separate agents for cloning, parsing, planning, and formatting
-- **🆕 Web Interface**: Beautiful GitBlueprint-inspired UI for easy repository analysis
-- **🆕 Live Processing**: Real-time repository analysis with status updates
+## 🎯 Product Overview
 
-## ✨ Key Features
+**GitBlueprint** transforms GitHub repositories into comprehensive documentation and Claude Desktop prompts. Built for developers and teams who need to understand and replicate codebases efficiently.
 
-- 🔍 **Smart Repository Analysis**: Automatically detects project type, complexity, and structure
-- 📝 **Comprehensive Documentation**: Generates sections for overview, installation, usage, API docs, and more
-- 🔗 **Prompt Chaining**: Uses sequential AI prompts for detailed, contextual content
-- 🧠 **Self-Learning**: Incorporates AI engineering best practices from knowledge base
-- 📊 **Multiple Formats**: Outputs markdown with optional PDF/HTML conversion
-- 🛠 **Modular Design**: Clean separation of concerns with dedicated agents
-- 🎯 **Claude Prompts Generation**: Creates tailored Claude Desktop prompts for project recreation
-- 🔄 **Local & Remote Support**: Works with both GitHub URLs and local directories
-- 🌐 **Web Interface**: Beautiful, responsive UI inspired by GitBlueprint design
-- ⚡ **Real-time Processing**: Live status updates and progress tracking
-- 🎨 **Modern UI/UX**: Dark/light theme toggle, responsive design, and intuitive controls
-- 📱 **Mobile Friendly**: Works seamlessly across desktop, tablet, and mobile devices
+### 💡 Why GitBlueprint?
 
-## 🏗 Architecture
+- **Automated Documentation**: Generate comprehensive docs from any repository
+- **Fast Onboarding**: Help teams understand codebases quickly  
+- **AI Replication**: Create Claude prompts that recreate project structures
+- **Production Ready**: Built for teams and organizations
+
+## 🌟 Key Features
+
+### 🎯 Core Functionality
+- **Intelligent Repository Analysis**: Deep analysis of GitHub repositories using advanced AI models
+- **Multi-Modal Documentation**: Generates comprehensive documentation in multiple formats
+- **Claude Prompt Generation**: Creates production-ready Claude Desktop prompts for repository replication
+- **Meta-Prompting Strategy**: Uses sophisticated prompt chaining for enhanced output quality
+
+### 🖥️ Web Interface (GitBlueprint-Inspired)
+- **Modern UI**: Clean, responsive interface inspired by GitBlueprint design patterns
+- **Real-Time Processing**: Live status updates and progress tracking
+- **Theme Toggle**: Dark/light mode support for better user experience
+- **Mobile-Friendly**: Responsive design that works across all devices
+- **Live Analytics**: Real-time insights into processing status and results
+
+### 🤖 Advanced AI Integration
+- **Weaviate Vector Search**: Enhanced semantic analysis and pattern recognition
+- **Opik Observability**: Comprehensive LLM monitoring and performance tracking
+- **Multi-Agent Architecture**: Specialized agents for different processing tasks
+- **Enhanced Claude Generator**: Advanced prompt generation with executable instructions
+
+## 🏗️ Architecture
+
+GitBlueprint follows a modular, agent-based architecture:
 
 ```
-PromptSwitch/
-├── main.py                    # Main orchestrator
-├── agents/                    # Modular agent components
-│   ├── repo_cloner.py        # Repository cloning with GitPython
-│   ├── parser.py             # Structure and content analysis
-│   ├── doc_planner.py        # Outline generation using meta-prompting
-│   ├── section_filler.py     # Content generation via prompt chaining
-│   ├── formatter.py          # Document formatting and conversion
-│   ├── test_generator.py     # Automated test generation
-│   ├── review_agent.py       # Quality review and validation
-│   └── weaviate_analyzer.py  # Enhanced AI-powered analysis
-├── ui/                        # Web interface (NEW!)
-│   ├── index.html            # GitBlueprint-inspired UI
-│   ├── script.js             # Frontend logic and API integration
-│   ├── styles.css            # Modern responsive styling
-│   └── backend_server.py     # HTTP server for live processing
-├── prompts/                   # AI prompt templates
-│   ├── meta_prompt.txt       # Core behavior and guidelines
-│   ├── outline_prompt.txt    # Structure generation prompt
-│   ├── section_prompt.txt    # Section-specific content prompt
-│   └── system_prompt.txt     # System-level instructions
-├── outputs/                   # Generated documentation
-│   ├── {project}_documentation.md        # Main documentation
-│   ├── {project}_documentation.pdf       # PDF version
-│   └── {project}_claude_prompts.md       # Claude Desktop prompts
-├── Learn_AI/                  # AI knowledge base
-│   └── guide-to-ai-assisted-engineering.pdf
-└── Project Docs/              # Project planning and architecture
-    ├── 01_plan.md            # Design blueprint
-    ├── 02_architecture.mmd   # System diagram
-    └── 03_docs.md            # Behavior guide
+GitBlueprint/
+├── backend/                   # Python backend
+│   ├── agents/               # Core AI agents
+│   │   ├── repo_cloner.py    # Repository cloning and setup
+│   │   ├── doc_planner.py    # Documentation structure planning
+│   │   ├── section_filler.py # Content generation for sections
+│   │   ├── enhanced_claude_generator.py # Claude prompt creation
+│   │   ├── weaviate_analyzer.py # Vector search and analysis
+│   │   ├── formatter.py      # Output formatting
+│   │   ├── parser.py         # Code parsing and analysis
+│   │   ├── review_agent.py   # Quality assurance
+│   │   └── test_generator.py # Test case generation
+│   ├── prompts/              # AI prompts and templates
+│   ├── ui/                   # Legacy web interface
+│   ├── main.py              # CLI entry point
+│   ├── api_server.py        # REST API server
+│   └── requirements.txt     # Python dependencies
+├── src/                      # Modern React frontend
+│   ├── components/          # UI components
+│   ├── pages/              # Application pages
+│   └── lib/                # Utilities and helpers
+└── public/                  # Static assets
 ```
+
+### 🤖 Core Agents
+
+1. **RepoCloner**: Handles GitHub repository cloning and initial setup
+2. **DocPlanner**: Creates structured documentation outlines
+3. **SectionFiller**: Generates content for each documentation section
+4. **EnhancedClaudeGenerator**: Creates executable Claude Desktop prompts
+5. **EnhancedWeaviateAnalyzer**: Performs semantic analysis and pattern recognition
+6. **Formatter**: Handles output formatting and file generation
+7. **Parser**: Analyzes code structure and dependencies
+8. **ReviewAgent**: Ensures quality and completeness
+9. **TestGenerator**: Creates comprehensive test suites
+10. **PDFConverter**: Converts documentation to PDF format
 
 ## 🚀 Quick Start
 
-### 🌐 Web Interface (Recommended)
+### Web Interface (Recommended)
 
-The easiest way to use PromptSwitch is through our beautiful web interface:
-
-1. **Start the servers:**
+1. **Clone the repository**:
    ```bash
-   # Terminal 1: Start the web interface
-   cd ui && python3 -m http.server 8080
-   
-   # Terminal 2: Start the backend server
-   cd ui && python3 backend_server.py 8081
+   git clone https://github.com/Avikalp-Karrahe/gitblueprint-agent-forge-67146.git
+   cd gitblueprint-agent-forge-67146
    ```
 
-2. **Open your browser:**
-   ```
-   http://localhost:8080
-   ```
-
-3. **Analyze any repository:**
-   - Enter a GitHub URL (e.g., `https://github.com/facebook/react`)
-   - Click "Generate Blueprint"
-   - Watch real-time processing with live status updates
-   - View comprehensive analysis results and generated documentation
-
-### 📱 Web Interface Features
-
-- **🎨 Beautiful Design**: GitBlueprint-inspired modern interface
-- **🌓 Theme Toggle**: Switch between light and dark modes
-- **📊 Live Analytics**: Real-time Weaviate analysis and insights
-- **📋 Blueprint Generation**: Comprehensive development blueprints
-- **📱 Responsive**: Works perfectly on desktop, tablet, and mobile
-- **⚡ Real-time Updates**: Live processing status and progress tracking
-
-### 💻 Command Line Interface
-
-For advanced users and automation:
-
-### Prerequisites
-
-- Python 3.8 or higher
-- Git installed on your system
-- API keys for AI services (OpenAI/Anthropic)
-
-### Installation
-
-1. **Clone the repository:**
+2. **Install frontend dependencies**:
    ```bash
-   git clone https://github.com/Avikalp-Karrahe/PromptSwitch.git
-   cd PromptSwitch
+   npm install
    ```
 
-2. **Set up virtual environment:**
+3. **Install backend dependencies**:
    ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. **Install dependencies:**
-   ```bash
+   cd backend
    pip install -r requirements.txt
    ```
 
-4. **Configure environment:**
+4. **Start the development servers**:
    ```bash
-   cp .env.public .env
-   # Edit .env with your API keys and preferences
+   # Frontend (in root directory)
+   npm run dev
+   
+   # Backend API (in backend directory)
+   python api_server.py
    ```
 
-### Basic Usage
+5. **Open your browser** to `http://localhost:5173`
 
-#### 🌐 Web Interface (Recommended)
-Simply visit `http://localhost:8080` after starting the servers and enter any GitHub URL!
+### CLI Usage
 
-#### 📱 Command Line Interface
-```bash
-# Analyze a GitHub Repository
-python main.py https://github.com/username/repository
+1. **Set up environment**:
+   ```bash
+   cd backend
+   cp .env.example .env
+   # Edit .env with your API keys
+   ```
 
-# Analyze a Local Directory
-python main.py /path/to/local/project
-```
+2. **Run GitBlueprint**:
+   ```bash
+   python main.py --repo-url https://github.com/username/repository
+   ```
 
-#### Advanced Options
-```bash
-# Custom output directory
-python main.py https://github.com/username/repo --output ./custom_output
-
-# Skip tests and review
-python main.py https://github.com/username/repo --no-tests --no-review
-
-# Custom prompts directory
-python main.py https://github.com/username/repo --prompts-dir ./custom_prompts
-```
-
-## 📋 Configuration
+## ⚙️ Configuration
 
 ### Environment Variables
 
-Copy `.env.public` to `.env` and configure:
+Create a `.env` file in the backend directory:
 
-```bash
-# AI Service Configuration
-OPENAI_API_KEY=your_openai_api_key_here
+```env
+# Required
 ANTHROPIC_API_KEY=your_anthropic_api_key_here
+GITHUB_TOKEN=your_github_token_here
 
-# PromptSwitch Settings
-PROMPTSWITCH_OUTPUT_DIR=./outputs
-PROMPTSWITCH_TEMP_DIR=./temp
-PROMPTSWITCH_LOG_LEVEL=INFO
-PROMPTSWITCH_MAX_RETRIES=3
+# Optional - Weaviate Integration
+WEAVIATE_URL=your_weaviate_cluster_url
+WEAVIATE_API_KEY=your_weaviate_api_key
 
-# Documentation Settings
-PROMPTSWITCH_INCLUDE_TOC=true
-PROMPTSWITCH_DEFAULT_FORMAT=markdown
-PROMPTSWITCH_WORD_LIMIT=10000
+# Optional - Opik Observability
+OPIK_API_KEY=your_opik_api_key
+OPIK_PROJECT_NAME=gitblueprint
+OPIK_WORKSPACE=your_workspace_name
 ```
 
-## 🔧 Advanced Usage
-
-### Programmatic API
-
-```python
-from main import PromptSwitchAgent
-
-# Initialize agent
-agent = PromptSwitchAgent(output_dir="./outputs")
-
-# Process repository
-result = agent.process_repository("https://github.com/username/repo")
-
-# Access generated files
-print(f"Documentation: {result['documentation_path']}")
-print(f"Claude Prompts: {result['prompts_path']}")
-print(f"PDF Version: {result['pdf_path']}")
-```
-
-### Custom Prompts
-
-Create custom prompt templates in the `prompts/` directory:
-
-- `meta_prompt.txt`: Core agent behavior
-- `outline_prompt.txt`: Documentation structure
-- `section_prompt.txt`: Content generation
-- `system_prompt.txt`: System instructions
-
-## 📊 Output Files
-
-PromptSwitch generates comprehensive documentation including:
-
-### 📄 Main Documentation
-- **Project Overview**: Summary, goals, and key features
-- **Technology Stack**: Languages, frameworks, and tools
-- **Installation Guide**: Step-by-step setup instructions
-- **Usage Examples**: Code samples and tutorials
-- **API Documentation**: Detailed API reference
-- **Architecture**: System design and components
-- **Contributing**: Guidelines for contributors
-- **Troubleshooting**: Common issues and solutions
-
-### 🎯 Claude Desktop Prompts
-- **Prompt 1**: Project Setup & Architecture Planning
-- **Prompt 2**: Core Implementation & Features
-- **Prompt 3**: Testing, Deployment & Optimization
-
-### 📋 Additional Outputs
-- **PDF Documentation**: Professional formatted version
-- **Test Files**: Automated test generation
-- **Quality Review**: Comprehensive analysis report
-- **Regeneration Blocks**: Improvement suggestions
-
-## 🎬 Demo & Examples
-
-### 🌐 Live Web Interface
-
-Experience PromptSwitch through our beautiful web interface at `http://localhost:8080`:
-
-![PromptSwitch Web Interface](https://img.shields.io/badge/Interface-Live%20Demo-brightgreen)
-
-**Key Features:**
-- **GitBlueprint Design**: Pixel-perfect recreation of the popular GitBlueprint interface
-- **Real-time Processing**: Watch your repository being analyzed with live status updates
-- **Enhanced Analytics**: Comprehensive Weaviate analysis with similarity matching
-- **Blueprint Generation**: Detailed development blueprints with setup instructions
-- **Theme Support**: Beautiful dark and light themes
-- **Mobile Responsive**: Works seamlessly across all devices
-
-**Try These Sample Repositories:**
-- `https://github.com/facebook/react` - React JavaScript Library
-- `https://github.com/microsoft/vscode` - VS Code Editor
-- `https://github.com/vercel/next.js` - Next.js Framework
-- `https://github.com/mui/material-ui` - Material-UI Components
-
-### 📁 Organized Output Structure
-
-PromptSwitch now organizes all outputs by repository name for better management:
-
-```
-outputs/
-├── facebook/                    # Facebook React repository
-│   ├── facebook_reac_documentation.md
-│   ├── facebook_reac_documentation.pdf
-│   └── facebook_reac_documentation_claude_prompts.md
-├── mui/                         # Material-UI repository
-│   ├── mui_material-u_documentation.md
-│   ├── mui_material-u_documentation.pdf
-│   └── mui_material-u_documentation_claude_prompts.md
-├── torvalds/                    # Linux kernel repository
-│   ├── torvalds_linux_documentation.md
-│   ├── torvalds_linux_documentation.pdf
-│   └── torvalds_linux_documentation_claude_prompts.md
-└── octocat/                     # GitHub Hello World example
-    ├── octocat_Hello-World_documentation.md
-    ├── octocat_Hello-World_documentation.pdf
-    └── octocat_Hello-World_documentation_claude_prompts.md
-```
-
-### 📋 Sample Documentation Outputs
-
-PromptSwitch can handle repositories of all sizes and complexities. Here are some examples:
-
-#### 🔥 Major Open Source Projects
-
-**[Facebook React](https://github.com/facebook/react)** - JavaScript UI Library  
-**Generated Files:** [`outputs/facebook/`](./outputs/facebook/)
-- 📄 [Markdown Documentation](./outputs/facebook/facebook_reac_documentation.md) (1,131 lines)
-- 📄 [PDF Version](./outputs/facebook/facebook_reac_documentation.pdf) (Professional format)
-- 🤖 [Claude Prompts](./outputs/facebook/facebook_reac_documentation_claude_prompts.md) (317 lines)
-
-**[Microsoft VS Code](https://github.com/microsoft/vscode)** - TypeScript Code Editor  
-**Generated Files:** [`outputs/microsoft/`](./outputs/microsoft/)
-- 📄 [Markdown Documentation](./outputs/microsoft/microsoft_vscode_documentation.md) (Available)
-- 🤖 [Claude Prompts](./outputs/microsoft/microsoft_vscode_documentation_claude_prompts.md) (317 lines)
-
-**[Linux Kernel](https://github.com/torvalds/linux)** - C Operating System Kernel  
-**Generated Files:** [`outputs/torvalds/`](./outputs/torvalds/)
-- 📄 [Markdown Documentation](./outputs/torvalds/torvalds_linux_documentation.md) (Available)
-- 📄 [PDF Version](./outputs/torvalds/torvalds_linux_documentation.pdf) (Professional format)
-- 🤖 [Claude Prompts](./outputs/torvalds/torvalds_linux_documentation_claude_prompts.md) (317 lines)
-
-#### 💼 Portfolio Projects
-
-**[Minimal React Portfolio](https://github.com/Glacian22/Minimal-React-Portfolio)** - JavaScript Portfolio  
-**Generated Files:** [`outputs/Glacian22/`](./outputs/Glacian22/)
-- 📄 [Markdown Documentation](./outputs/Glacian22/Glacian22_Minimal-React-Portfolio_documentation.md) (383 lines)
-- 📄 [PDF Version](./outputs/Glacian22/Glacian22_Minimal-React-Portfolio_documentation.pdf) (Professional format)
-- 🤖 [Claude Prompts](./outputs/Glacian22/Glacian22_Minimal-React-Portfolio_documentation_claude_prompts.md) (317 lines)
-
-### 📖 Example Output: Facebook React Documentation
-
-Here's a preview of the comprehensive documentation generated for the Facebook React repository:
-
-```markdown
-# gitread_react
-
-**Primary Language:** javascript  
-**Project Type:** Web Frontend  
-**Complexity:** Complex  
-**Generated:** 2025-06-02T08:22:42.412657
-
-## Table of Contents
-
-- [Technology Stack](#technology-stack)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [License](#license)
-- [Project Summary & Goals](#project-summary-&-goals)
-- [Key Features & Use Cases](#key-features-&-use-cases)
-- [Setup Instructions](#setup-instructions)
-- [Configuration Required](#configuration-required)
-- [Major Components & Modules](#major-components-&-modules)
-- [Execution Plan](#execution-plan)
-- [Development Workflow](#development-workflow)
-- [Testing Strategy](#testing-strategy)
-- [Deployment Checklist](#deployment-checklist)
-- [Troubleshooting & Tips](#troubleshooting-&-tips)
-- [Performance Optimization](#performance-optimization)
-- [Contributing Guidelines](#contributing-guidelines)
-
-## Technology Stack
-
-This project leverages modern technologies and frameworks to deliver a robust, 
-scalable, and maintainable solution.
-
-### Programming Languages
-
-- **javascript** (Primary): 58.4% - 3577 files
-- **markdown**: 27.6% - 1689 files
-- **typescript**: 8.1% - 499 files
-- **json**: 2.3% - 138 files
-- **css**: 1.6% - 99 files
-- **html**: 1.3% - 79 files
-- **yaml**: 0.5% - 28 files
-- **shell**: 0.2% - 10 files
-- **cpp**: 0.1% - 4 files
-
-### File Breakdown
-
-| Language | Files | Percentage | Purpose |
-|----------|-------|------------|----------|
-| javascript | 3577 | 58.4% | Application development and functionality |
-| markdown | 1689 | 27.6% | Documentation and guides |
-| typescript | 499 | 8.1% | Type-safe development |
-| json | 138 | 2.3% | Configuration and data |
-| css | 99 | 1.6% | Styling and presentation |
-| html | 79 | 1.3% | Markup and templates |
-| yaml | 28 | 0.5% | Configuration files |
-| shell | 10 | 0.2% | Build and deployment scripts |
-| cpp | 4 | 0.1% | Native extensions |
-```
-
-**Full Documentation:** [📄 View Complete React Documentation](./outputs/facebook/facebook_reac_documentation.md) (1,131 lines)
-
-
-
-### 🤖 Claude Desktop Integration
-
-Each repository generates ready-to-use Claude Desktop prompts:
-
-**Example:** [`facebook_reac_documentation_claude_prompts.md`](./outputs/facebook/facebook_reac_documentation_claude_prompts.md)
-
-```markdown
-# Claude Desktop Prompts for Building facebook_reac
-
-## Project Information
-- **GitHub URL:** https://github.com/facebook/react
-- **Primary Language:** JavaScript
-- **Project Type:** Web Frontend
-- **Generated:** 2025-06-02T08:22:42
-
-## Prompt 1: Project Setup & Architecture Planning
-
-You are a senior full-stack developer and software architect. I need you to help me build a React JavaScript library for building user interfaces using Unknown.
-
-**Project Context:**
-- Primary Language: Unknown
-- Project Type: Unknown
-- Reference Repository: https://github.com/facebook/react
-- Target Complexity: Based on 0 files
-- Key Features to Build: Component-based architecture, Virtual DOM, JSX syntax, State management, Hooks API
-
-**Your Role:**
-- Expert Unknown developer with 10+ years experience
-- Software architecture specialist for Unknown applications
-- DevOps and deployment expert
-- Code quality advocate
-
-**Task:**
-Help me plan and set up the foundational architecture for a React JavaScript library for building user interfaces:
-
-1. **Project Initialization**
-   - Create proper directory structure
-   - Set up version control (git)
-   - Initialize package management (Unknown-specific)
-   - Configure development environment
-
-2. **Technology Stack Selection**
-   - Choose appropriate frameworks and libraries
-   - Select development tools and build systems
-   - Recommend testing frameworks
-   - Suggest deployment platforms
-
-3. **Architecture Design**
-   - Design overall system architecture
-   - Plan component structure and relationships
-   - Define data flow and API design
-   - Establish coding standards and conventions
-
-4. **Development Environment Setup**
-   - Create configuration files
-   - Set up development scripts
-   - Configure linting and formatting tools
-   - Establish CI/CD pipeline basics
-
-**Output Requirements:**
-- Step-by-step setup instructions
-- Complete file structure with explanations
-- Configuration files with proper settings
-- Development workflow recommendations
-- Best practices for the chosen technology stack
-
-**Quality Standards:**
-- Follow industry best practices
-- Ensure scalability and maintainability
-- Include security considerations
-- Provide clear, actionable instructions
-- Use modern development approaches
-
-Please provide a comprehensive project setup plan that I can follow to create a solid foundation for building this Unknown application.
-
-## Prompt 2: Core Implementation & Features
-[Implementation guidance and feature development]
-
-## Prompt 3: Testing, Deployment & Optimization
-[Testing strategies and deployment best practices]
-```
-
-### 📊 Quality Metrics
-
-**Sample Analysis Results:**
-- ✅ **Documentation Coverage**: 95%
-- ✅ **Code Quality Score**: 88/100
-- ✅ **Test Generation**: 12 test files
-- ✅ **Review Score**: 92/100
-
-### 🔄 Repository-Specific Folders
-
-Starting with v2, PromptSwitch automatically creates organized output folders:
-
-- **Automatic Detection**: Extracts repository name from GitHub URL
-- **Clean Organization**: All outputs grouped by repository
-- **Easy Navigation**: Find all related files in one place
-- **Scalable Structure**: Supports unlimited repositories
+### Advanced Configuration
+
+- **Custom Prompts**: Modify files in `backend/prompts/` directory
+- **Agent Behavior**: Configure individual agents in `backend/agents/`
+- **Output Formats**: Customize formatting in `backend/agents/formatter.py`
+- **UI Themes**: Modify styles in `src/` directory
+
+## 📁 Output Files
+
+GitBlueprint generates several types of outputs:
+
+- **📄 Documentation Files**: Comprehensive markdown documentation
+- **🤖 Claude Prompts**: Ready-to-use Claude Desktop prompts
+- **📊 Analysis Reports**: Detailed repository analysis
+- **🧪 Test Suites**: Generated test cases and scenarios
+- **📋 Project Summaries**: Executive summaries and overviews
+- **🔄 Regeneration Blocks**: Modular prompt components for updates
 
 ## 🧪 Testing
 
-### Run Tests
+Run the test suite:
+
 ```bash
-# Run all tests
-python -m pytest
-
-# Run specific test file
-python -m pytest tests/test_parser.py
-
-# Run with coverage
-python -m pytest --cov=agents
+cd backend
+python -m pytest tests/ -v
 ```
 
-### Generate Tests
-```bash
-# Generate tests for a repository
-python main.py https://github.com/username/repo --generate-tests
-```
+## 🎬 Live Demo
 
-## 🔍 Quality Assurance
+Experience GitBlueprint in action:
+- **Web Interface**: Modern React-based UI with real-time processing
+- **CLI Tool**: Command-line interface for automated workflows
+- **API Integration**: RESTful API for custom integrations
 
-PromptSwitch includes built-in quality assurance:
+## 🛠️ Development
 
-- **Automated Testing**: Generates comprehensive test suites
-- **Code Review**: AI-powered code quality analysis
-- **Documentation Review**: Content quality validation
-- **Performance Metrics**: Generation time and accuracy tracking
+### Prerequisites
 
-## 🛠 Development
+- **Node.js** 18+ and npm
+- **Python** 3.8+
+- **Git**
+- **Anthropic API Key**
+- **GitHub Token**
 
-### 🌐 Web Interface Development
+### Setup
 
-The web interface is built with modern web technologies:
-
-**Frontend Stack:**
-- **HTML5**: Semantic markup with accessibility features
-- **CSS3**: Modern styling with CSS Grid, Flexbox, and custom properties
-- **Vanilla JavaScript**: No frameworks, pure performance
-- **Responsive Design**: Mobile-first approach with breakpoints
-
-**Backend Integration:**
-- **Python HTTP Server**: Simple static file serving on port 8080
-- **Backend API Server**: Custom Python server on port 8081 for live processing
-- **Real-time Communication**: Polling-based status updates
-- **CORS Support**: Cross-origin requests handled properly
-
-**Development Workflow:**
-```bash
-# Start development servers
-cd ui
-python3 -m http.server 8080 &  # Frontend
-python3 backend_server.py 8081 &  # Backend API
-
-# Open browser
-open http://localhost:8080
-```
-
-### 🔄 Backend Architecture
-
-### Project Structure
-
-- `agents/`: Core processing modules
-- `prompts/`: AI prompt templates
-- `outputs/`: Generated documentation
-- `tests/`: Test suites
-- `Learn_AI/`: Knowledge base
-- `Project Docs/`: Project documentation
-- `plugins/`: Extensible plugin system
-- `CONTRIBUTING.md`: Comprehensive contribution guidelines
-
-### Contributing
-
-We welcome contributions! Please see our comprehensive [CONTRIBUTING.md](CONTRIBUTING.md) guide for detailed information on:
-
-- 🏗️ **Project Architecture**: Understanding the codebase structure
-- 🚀 **Development Setup**: Getting your environment ready
-- 📝 **Coding Standards**: Following our style guidelines
-- 🧪 **Testing Procedures**: Ensuring code quality
-- 🎤 **Voice Integration**: Guidelines for voice-enabled features
-- 🔌 **Plugin Development**: Creating custom extensions
-
-**Quick Start for Contributors:**
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Follow the guidelines in [CONTRIBUTING.md](CONTRIBUTING.md)
-4. Run the test suite: `python -m pytest`
-5. Submit a pull request
+1. **Fork and clone** the repository
+2. **Install dependencies** (frontend and backend)
+3. **Configure environment** variables
+4. **Start development** servers
+5. **Make changes** and test
+6. **Submit pull requests**
 
 ### Code Style
 
-- Follow PEP 8 guidelines
-- Use Black for code formatting: `black .`
-- Add type hints where appropriate
-- Write comprehensive docstrings
-- See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed standards
+- **Frontend**: ESLint + Prettier configuration
+- **Backend**: Black formatter + flake8 linting
+- **Commits**: Conventional commit messages
 
-## 📈 Performance
+## 🐳 Docker Deployment
 
-### Benchmarks
+### Build and Run
 
-- **Small Projects** (< 50 files): ~2-3 minutes
-- **Medium Projects** (50-200 files): ~5-8 minutes
-- **Large Projects** (200+ files): ~10-15 minutes
+```bash
+# Build the image
+docker build -t gitblueprint .
 
-### Optimization Tips
+# Run the container
+docker run -p 3000:3000 -p 8000:8000 gitblueprint
+```
 
-- Use `PROMPTSWITCH_SHALLOW_CLONE=true` for faster cloning
-- Set `PROMPTSWITCH_MAX_FILES_TO_ANALYZE` to limit scope
-- Enable caching with `PROMPTSWITCH_ENABLE_CACHE=true`
+### Docker Compose
+
+```yaml
+version: '3.8'
+services:
+  gitblueprint:
+    build: .
+    ports:
+      - "3000:3000"
+      - "8000:8000"
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - GITHUB_TOKEN=${GITHUB_TOKEN}
+```
+
+## ☁️ Cloud Deployment
+
+GitBlueprint can be deployed on various cloud platforms:
+
+- **Vercel**: Frontend deployment with serverless functions
+- **Railway**: Full-stack deployment with automatic scaling
+- **AWS**: EC2, ECS, or Lambda deployment options
+- **Google Cloud**: App Engine or Cloud Run deployment
+- **Azure**: Container Instances or App Service deployment
 
 ## 🔧 Troubleshooting
 
 ### Common Issues
 
-**Issue: "No module named 'weaviate'"**
+1. **API Key Errors**: Ensure all required API keys are set in `.env`
+2. **Rate Limiting**: Implement delays between API calls if needed
+3. **Memory Issues**: Use streaming for large repositories
+4. **Network Timeouts**: Configure appropriate timeout values
+
+### Debug Mode
+
+Enable debug logging:
+
 ```bash
-pip install weaviate-client
+export DEBUG=true
+python main.py --repo-url https://github.com/username/repository --verbose
 ```
 
-**Issue: "Git command not found"**
-- Install Git: https://git-scm.com/downloads
-- Ensure Git is in your PATH
+## 🗺️ Roadmap
 
-**Issue: "API key not found"**
-- Set your OpenAI API key: `export OPENAI_API_KEY="your-key-here"`
-- Or create a `.env` file with `OPENAI_API_KEY=your-key-here`
+### Upcoming Features
 
-**Issue: "Permission denied when cloning"**
-- Ensure you have access to the repository
-- For private repos, use SSH keys or personal access tokens
+- **🔌 Plugin System**: Extensible architecture for custom agents
+- **📊 Analytics Dashboard**: Advanced metrics and insights
+- **🔄 Incremental Updates**: Smart diff-based documentation updates
+- **🌐 Multi-Language Support**: Support for more programming languages
+- **🤝 Team Collaboration**: Shared workspaces and collaborative editing
+- **📱 Mobile App**: Native mobile applications for iOS and Android
 
-**Issue: "Weaviate connection failed"**
-- Check your internet connection
-- Verify Weaviate cloud instance is running
-- Confirm API keys are correct
+### Performance Improvements
 
-### 🌐 Web Interface Issues
+- **⚡ Caching Layer**: Redis-based caching for faster processing
+- **🔄 Background Jobs**: Asynchronous processing with job queues
+- **📈 Scalability**: Horizontal scaling and load balancing
+- **🎯 Smart Routing**: Intelligent request routing and optimization
 
-**Issue: "Web interface not loading"**
-```bash
-# Check if servers are running
-lsof -i :8080  # Frontend server
-lsof -i :8081  # Backend server
-
-# Restart servers if needed
-cd ui
-python3 -m http.server 8080 &
-python3 backend_server.py 8081 &
-```
-
-**Issue: "Backend connection failed"**
-- Ensure both servers (8080 and 8081) are running
-- Check browser console for CORS errors
-- Verify no firewall is blocking local connections
-
-**Issue: "Processing stuck or failed"**
-- Check terminal output for error messages
-- Ensure all dependencies are installed
-- Verify GitHub URL is accessible and public
-
-**Issue: "Mobile interface not responsive"**
-- Clear browser cache and reload
-- Ensure you're using a modern browser
-- Check for JavaScript errors in console
-
-**API Rate Limits**
-```bash
-# Increase retry delay
-PROMPTSWITCH_RETRY_DELAY=5
-PROMPTSWITCH_MAX_RETRIES=5
-```
-
-**Memory Issues**
-```bash
-# Reduce file analysis limit
-PROMPTSWITCH_MAX_FILES_TO_ANALYZE=100
-PROMPTSWITCH_MAX_FILE_SIZE=524288  # 512KB
-```
-
-**Timeout Errors**
-```bash
-# Increase timeout
-PROMPTSWITCH_TIMEOUT=600  # 10 minutes
-```
-
-## 📜 License
+## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🤝 Support
+## 🤝 Acknowledgments
 
-Need help? Here's how to get support:
-
-- 🐛 **Issues**: [GitHub Issues](https://github.com/Avikalp-Karrahe/PromptSwitch/issues)
-- 📧 **Email**: akarrahe@ucdavis.edu
-- 💼 **LinkedIn**: [Connect with Avikalp](https://www.linkedin.com/in/avikalp/)
-- 🔗 **GitHub**: [Follow for updates](https://github.com/Avikalp-Karrahe)
-
-## 🙏 Acknowledgments
-
-- Built with advanced AI engineering principles
-- Inspired by modern documentation best practices
-- Powered by OpenAI and Anthropic AI models
-- Designed for developer experience (DX) optimization
-
-## 🚀 Future Plans
-
-### 🌐 Web Interface Enhancements
-- **Authentication System**: User accounts and project management
-- **Real-time Collaboration**: Multiple users analyzing repositories together
-- **Advanced Filtering**: Search and filter analysis results
-- **Export Options**: PDF, Word, and custom format exports
-- **Integration APIs**: Webhook support for CI/CD pipelines
-- **Analytics Dashboard**: Usage statistics and insights
-
-### 🤖 AI & Analysis Improvements
-- **Multi-LLM Support**: Integration with Claude, Gemini, and other models
-- **Custom Prompts**: User-defined analysis templates
-- **Advanced Weaviate**: Enhanced similarity search and clustering
-- **Code Quality Metrics**: Deeper static analysis integration
-- **Security Scanning**: Automated vulnerability detection
-- **Performance Analysis**: Runtime and memory profiling
-
-### 🔧 Platform & Infrastructure
-- **Docker Support**: Containerized deployment options
-- **Cloud Deployment**: One-click cloud hosting
-- **API Gateway**: RESTful API for enterprise integration
-- **Database Integration**: Persistent storage for analysis history
-- **Monitoring & Logging**: Comprehensive observability
-- **Scalability**: Horizontal scaling for large repositories
+- Inspired by GitBlueprint's elegant design patterns
+- Built with modern AI technologies and best practices
+- Community-driven development and continuous improvement
 
 ---
 
-**Created by [Avikalp Karrahe](https://github.com/Avikalp-Karrahe)** | **Connect on [LinkedIn](https://www.linkedin.com/in/avikalp/)**
+**Made with ❤️ by the GitBlueprint Team**
 
-*Generated with ❤️ by PromptSwitch Agent*
+🔗 **Repository**: [https://github.com/Avikalp-Karrahe/gitblueprint-agent-forge-67146](https://github.com/Avikalp-Karrahe/gitblueprint-agent-forge-67146)
