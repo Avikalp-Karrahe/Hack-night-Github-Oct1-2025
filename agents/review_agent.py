@@ -17,7 +17,7 @@ import os
 import json
 from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple
-from datetime import datetime
+from datetime import datetime, timezone
 
 
 class ReviewAgent:
@@ -86,7 +86,7 @@ class ReviewAgent:
         )
         
         review_results = {
-            'review_timestamp': datetime.utcnow().isoformat(),
+            'review_timestamp': datetime.now(timezone.utc).isoformat(),
             'overall_score': self._calculate_overall_score(quality_scores),
             'quality_scores': quality_scores,
             'content_gaps': content_gaps,
@@ -408,7 +408,7 @@ class ReviewAgent:
         
         regeneration_block = {
             'phase': 'GitRead v2 - Documentation Review Complete',
-            'timestamp': datetime.utcnow().isoformat(),
+            'timestamp': datetime.now(timezone.utc).isoformat(),
             'overall_quality_score': overall_score,
             'changes_this_pass': [
                 'Comprehensive documentation review completed',
@@ -448,7 +448,7 @@ class ReviewAgent:
             'metrics': {
                 'total_recommendations': len(recommendations),
                 'high_priority_issues': len([r for r in recommendations if r.get('priority') == 'high']),
-                'review_completion_time': datetime.utcnow().isoformat()
+                'review_completion_time': datetime.now(timezone.utc).isoformat()
             }
         }
         

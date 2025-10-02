@@ -8,7 +8,7 @@ This implements the core prompt chaining strategy (Prompt 2-N).
 
 import json
 import time
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Dict, List, Any, Optional
 
@@ -61,7 +61,7 @@ class SectionFiller:
             'project_name': outline.get('project_name', 'Unknown Project'),
             'sections': {},
             'generation_info': {
-                'timestamp': datetime.utcnow().isoformat(),
+                'timestamp': datetime.now(timezone.utc).isoformat(),
                 'total_sections': len(outline.get('sections', [])),
                 'ai_context_used': bool(ai_context)
             }

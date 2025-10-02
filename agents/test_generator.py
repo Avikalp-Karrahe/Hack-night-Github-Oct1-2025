@@ -18,7 +18,7 @@ import json
 import ast
 from pathlib import Path
 from typing import Dict, List, Any, Optional
-from datetime import datetime
+from datetime import datetime, timezone
 
 
 class TestGenerator:
@@ -67,7 +67,7 @@ class TestGenerator:
             'test_files': test_files,
             'coverage_requirements': test_coverage,
             'validation_scripts': validation_scripts,
-            'generated_at': datetime.utcnow().isoformat(),
+            'generated_at': datetime.now(timezone.utc).isoformat(),
             'framework_recommendations': self._recommend_frameworks(repo_data)
         }
         

@@ -14,7 +14,7 @@ import os
 import sys
 import argparse
 from pathlib import Path
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Dict, Any, List, Optional
 
 # Add project root to path
@@ -28,6 +28,7 @@ from agents.section_filler import SectionFiller
 from agents.formatter import DocumentFormatter
 from agents.test_generator import TestGenerator
 from agents.review_agent import ReviewAgent
+from agents.enhanced_claude_generator import EnhancedClaudeGenerator
 
 
 class PromptSwitchAgent:
@@ -57,6 +58,7 @@ class PromptSwitchAgent:
                                           outputs_dir=str(self.output_dir))
         self.reviewer = ReviewAgent(prompts_dir=str(self.prompts_dir), 
                                    outputs_dir=str(self.output_dir))
+        self.enhanced_claude_generator = EnhancedClaudeGenerator()
         
         # Load AI learning context and system prompts
         self.ai_learning_path = project_root / "Learn_AI"
@@ -137,7 +139,7 @@ class PromptSwitchAgent:
         print(f"📝 Output will be saved as: {base_filename}")
         
         pipeline_results = {
-            'start_time': datetime.utcnow().isoformat(),
+            'start_time': datetime.now(timezone.utc).isoformat(),
             'github_url': github_url,
             'repo_name': repo_name,
             'output_filename': base_filename,
@@ -257,7 +259,7 @@ class PromptSwitchAgent:
                 try:
                     # Update test generator to use repo-specific output directory
                     original_test_output_dir = self.test_generator.outputs_dir
-                    self.test_generator.outputs_dir = str(repo_output_dir)
+                    self.test_generator.outputs_dir = Path(repo_output_dir)
                     test_results = self.test_generator.generate_tests(repo_data, filled_doc)
                     self.test_generator.outputs_dir = original_test_output_dir  # Restore original
                     pipeline_results['outputs']['test_results'] = test_results
@@ -274,7 +276,7 @@ class PromptSwitchAgent:
                 try:
                     # Update reviewer to use repo-specific output directory
                     original_review_output_dir = self.reviewer.outputs_dir
-                    self.reviewer.outputs_dir = str(repo_output_dir)
+                    self.reviewer.outputs_dir = Path(repo_output_dir)
                     review_results = self.reviewer.review_documentation(
                         filled_doc, repo_data, test_results
                     )
@@ -304,7 +306,7 @@ class PromptSwitchAgent:
             print(f"✅ Regeneration block saved: {regen_path}")
             
             # Final Summary
-            pipeline_results['end_time'] = datetime.utcnow().isoformat()
+            pipeline_results['end_time'] = datetime.now(timezone.utc).isoformat()
             pipeline_results['success'] = True
             
             print("\n=== PIPELINE COMPLETE ===")
@@ -328,7 +330,7 @@ class PromptSwitchAgent:
             print(f"❌ {error_msg}")
             pipeline_results['errors'].append(error_msg)
             pipeline_results['success'] = False
-            pipeline_results['end_time'] = datetime.utcnow().isoformat()
+            pipeline_results['end_time'] = datetime.now(timezone.utc).isoformat()
             raise
         finally:
             # Cleanup cloned repository (but not local directories)
@@ -383,7 +385,7 @@ class PromptSwitchAgent:
         Meta-Prompt: Create structured handoff documentation that enables
         continuous improvement and tracks progress across iterations.
         """
-        timestamp = datetime.utcnow().isoformat()
+        timestamp = datetime.now(timezone.utc).isoformat()
         
         # Calculate summary metrics
         total_outputs = len(pipeline_results['outputs'])
@@ -580,309 +582,13 @@ class PromptSwitchAgent:
             return 'Initial'
     
     def _generate_claude_prompts(self, github_url, repo_data, documentation, base_filename):
-        """Generate Claude Desktop prompts for recreating the documentation."""
-        # Extract repository name from URL (just the repo part, not owner_repo)
-        full_repo_name = github_url.split('/')[-1]  # e.g., 'react'
-        display_repo_name = self._extract_repo_name(github_url)  # e.g., 'facebook_react'
-        
-        # Extract key information from repo_data
-        primary_language = repo_data.get('languages', {}).get('primary', 'Unknown')
-        file_count = len(repo_data.get('files', []))
-        project_type = repo_data.get('project_type', 'Unknown')
-        
-        # Extract project-specific features and purpose from documentation
-        project_features = self._extract_project_features(documentation, full_repo_name)
-        project_purpose = self._extract_project_purpose(documentation, full_repo_name)
-        
-        # Get first 1000 characters of documentation as sample
-        doc_sample = documentation[:1000] + "..." if len(documentation) > 1000 else documentation
-        
-        prompts_content = f"""# Claude Desktop Prompts for Building {display_repo_name}
-
-These prompts will help you **build and implement** the **{display_repo_name}** project from scratch using Claude Desktop, based on the analyzed documentation.
-
-## Project Information
-
-- **GitHub URL:** {github_url}
-- **Primary Language:** {primary_language}
-- **Project Type:** {project_type}
-- **File Count:** {file_count}
-- **Reference Documentation:** {base_filename}
-
-## Project Overview
-
-```markdown
-{doc_sample}
-```
-
----
-
-## Prompt 1: Project Setup & Architecture Planning
-
-```
-You are a senior full-stack developer and software architect. I need you to help me build {project_purpose} using {primary_language}.
-
-**Project Context:**
-- Primary Language: {primary_language}
-- Project Type: {project_type}
-- Reference Repository: {github_url}
-- Target Complexity: Based on {file_count} files
-- Key Features to Build: {project_features}
-
-**Your Role:**
-- Expert {primary_language} developer with 10+ years experience
-- Software architecture specialist for {project_type} applications
-- DevOps and deployment expert
-- Code quality advocate
-
-**Task:**
-Help me plan and set up the foundational architecture for {project_purpose}:
-
-1. **Project Initialization**
-   - Create proper directory structure
-   - Set up version control (git)
-   - Initialize package management ({primary_language}-specific)
-   - Configure development environment
-
-2. **Technology Stack Selection**
-   - Choose appropriate frameworks and libraries
-   - Select development tools and build systems
-   - Recommend testing frameworks
-   - Suggest deployment platforms
-
-3. **Architecture Design**
-   - Design overall system architecture
-   - Plan component structure and relationships
-   - Define data flow and API design
-   - Establish coding standards and conventions
-
-4. **Development Environment Setup**
-   - Create configuration files
-   - Set up development scripts
-   - Configure linting and formatting tools
-   - Establish CI/CD pipeline basics
-
-**Output Requirements:**
-- Step-by-step setup instructions
-- Complete file structure with explanations
-- Configuration files with proper settings
-- Development workflow recommendations
-- Best practices for the chosen technology stack
-
-**Quality Standards:**
-- Follow industry best practices
-- Ensure scalability and maintainability
-- Include security considerations
-- Provide clear, actionable instructions
-- Use modern development approaches
-
-Please provide a comprehensive project setup plan that I can follow to create a solid foundation for building this {project_type} application.
-```
-
----
-
-## Prompt 2: Core Implementation & Feature Development
-
-```
-You are an expert {primary_language} developer and system implementer. Building on the project setup from the previous step, I need you to help me implement the core functionality.
-
-**Previous Setup Context:**
-[PASTE THE OUTPUT FROM PROMPT 1 HERE]
-
-**Project Details:**
-- Repository Reference: {github_url}
-- Technology Stack: {primary_language}, {project_type}
-- Target: Build {project_purpose}
-- Core Features: {project_features}
-
-**Your Enhanced Role:**
-- Senior {primary_language} developer
-- API design specialist
-- Database architect (if applicable)
-- Frontend/Backend integration expert
-- Performance optimization specialist
-
-**Implementation Tasks:**
-
-1. **Core Application Logic**
-   - Implement main application entry points for {project_purpose}
-   - Create core business logic modules
-   - Set up routing and navigation (if applicable)
-   - Implement data models and schemas
-
-2. **Feature Implementation**
-   - Build these specific features: {project_features}
-   - Create user interfaces for the core functionality
-   - Implement API endpoints and services
-   - Add data persistence and management
-
-3. **Integration & Communication**
-   - Set up inter-component communication
-   - Implement external API integrations
-   - Configure database connections
-   - Add authentication and authorization
-
-4. **Error Handling & Validation**
-   - Implement comprehensive error handling
-   - Add input validation and sanitization
-   - Create logging and monitoring systems
-   - Set up debugging and development tools
-
-5. **Testing Implementation**
-   - Write unit tests for core functionality
-   - Create integration tests
-   - Set up test automation
-   - Implement code coverage reporting
-
-**Code Quality Requirements:**
-- Write clean, readable, and maintainable code
-- Follow established coding standards
-- Include comprehensive comments and documentation
-- Implement proper error handling
-- Use design patterns appropriately
-
-**Deliverables:**
-- Complete, functional codebase
-- Working application with core features
-- Comprehensive test suite
-- Clear code documentation
-- Setup and run instructions
-
-**Implementation Checklist:**
-- [ ] Core functionality is working
-- [ ] All features are implemented
-- [ ] Tests are passing
-- [ ] Code follows best practices
-- [ ] Application runs without errors
-- [ ] Documentation is complete
-
-Please provide complete, working code implementations that I can use to build {project_purpose} with these key features: {project_features}.
-```
-
----
-
-## Prompt 3: Deployment, Optimization & Production Readiness
-
-```
-You are a DevOps engineer and production systems specialist. I need you to help me deploy, optimize, and make my {project_type} application production-ready.
-
-**Complete Implementation Context:**
-[PASTE ALL PREVIOUS OUTPUTS HERE]
-
-**Project Status:**
-- Repository Reference: {github_url}
-- Technology: {primary_language} {project_type}
-- Current State: Functional {project_purpose} with core features
-- Target: Production-ready deployment
-- Features Implemented: {project_features}
-
-**Your Expert Role:**
-- DevOps and deployment specialist
-- Performance optimization expert
-- Security and compliance consultant
-- Monitoring and maintenance specialist
-- Production systems architect
-
-**Production Readiness Tasks:**
-
-1. **Deployment Configuration**
-   - Set up production environment
-   - Configure deployment scripts and automation
-   - Create Docker containers (if applicable)
-   - Set up cloud hosting and infrastructure
-
-2. **Performance Optimization**
-   - Optimize application performance
-   - Implement caching strategies
-   - Configure load balancing (if needed)
-   - Optimize database queries and connections
-
-3. **Security Implementation**
-   - Implement security best practices
-   - Set up SSL/TLS certificates
-   - Configure environment variables and secrets
-   - Add security headers and protections
-
-4. **Monitoring & Logging**
-   - Set up application monitoring
-   - Configure error tracking and alerting
-   - Implement performance metrics
-   - Create health check endpoints
-
-5. **Documentation & Maintenance**
-   - Create deployment documentation
-   - Write operational runbooks
-   - Set up backup and recovery procedures
-   - Plan maintenance and update strategies
-
-**Production Standards:**
-- High availability and reliability
-- Scalable architecture
-- Comprehensive monitoring
-- Security compliance
-- Automated deployment processes
-
-**Final Deliverables:**
-- Production deployment configuration
-- Monitoring and alerting setup
-- Security implementation
-- Operational documentation
-- Maintenance procedures
-
-**Production Checklist:**
-- [ ] Application deploys successfully
-- [ ] All security measures are in place
-- [ ] Monitoring and logging are working
-- [ ] Performance is optimized
-- [ ] Backup and recovery are configured
-- [ ] Documentation is complete
-- [ ] Application is publicly accessible
-- [ ] All production requirements are met
-
-Please provide a complete production deployment solution that makes my {project_purpose} ready for real-world use, following industry best practices for reliability, security, and performance.
-```
-
----
-
-## Implementation Guide
-
-### How to Use These Prompts:
-
-1. **Sequential Development**: Follow prompts in order (Setup → Implementation → Deployment)
-2. **Context Preservation**: Always include previous outputs in subsequent prompts
-3. **Customization**: Adapt technical details to your specific requirements
-4. **Iterative Refinement**: Ask for clarifications and improvements as needed
-
-### Expected Outcomes:
-
-- **Functional Application**: Complete, working {project_purpose} built with {primary_language}
-- **Production Ready**: Deployed application ready for real users  
-- **Best Practices**: Code following industry standards and conventions
-- **Comprehensive Documentation**: Setup, usage, and maintenance guides
-- **Key Features**: {project_features}
-
-### Development Tips:
-
-- Start with the basic setup and gradually add complexity
-- Test each component thoroughly before moving to the next step
-- Ask for specific code examples and implementations
-- Request explanations for any unclear concepts or decisions
-- Adapt the suggestions to your specific use case and requirements
-
-### Success Criteria:
-
-- ✅ Project builds and runs without errors
-- ✅ All core features are implemented and working
-- ✅ Application is deployed and accessible
-- ✅ Code quality meets professional standards
-- ✅ Documentation enables others to understand and contribute
-
----
-
-*Generated by PromptSwitch v2 for building {project_purpose} - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}*
-"""
-        
-        return prompts_content
+        """Generate enhanced Claude Desktop prompts using the new generator."""
+        return self.enhanced_claude_generator.generate_enhanced_prompts(
+            github_url=github_url,
+            repo_data=repo_data,
+            documentation=documentation,
+            base_filename=base_filename
+        )
     
     def _extract_project_features(self, documentation, repo_name):
          """Extract key features from documentation."""
